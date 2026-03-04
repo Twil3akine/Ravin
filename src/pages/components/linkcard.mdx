@@ -1,0 +1,25 @@
+---
+layout: "@/layouts/Layout.astro"
+title: LinkCard (リンクカード)
+---
+import LinkCard from '@/components/LinkCard.astro';
+import Button from '@/components/Button.astro';
+
+# LinkCard
+
+指定したURLのOGP（タイトル、説明、サムネイル画像）をビルド時に自動取得し、リッチなカード形式で表示するAstroコンポーネントです。
+
+## Usage
+
+MDX内で `<LinkCard href="..." />` のように記述するだけで、美しいカードが生成されます。
+
+### Astro 公式サイトの例
+<LinkCard href="https://astro.build/" />
+
+### GitHub の例
+<LinkCard href="https://github.com/" />
+
+<br/>
+<br/>
+
+<Button href="/" type="default">← トップへ戻る</Button>
