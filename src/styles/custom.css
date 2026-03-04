@@ -1,0 +1,10 @@
+:root {
+    /* メインのアクセントカラー（accent系）を紫に変更 */
+    --theme-accent: #8b5cf6;
+    --theme-accent-bg: rgba(139, 92, 246, 0.08);
+}
+
+/* ダークモード用の微調整（必要であれば） */
+:root.dark {
+    --theme-accent-bg: rgba(139, 92, 246, 0.15);
+}
