@@ -1,43 +1,52 @@
-# Astro Starter Kit: Minimal
+# Ravin
 
-```sh
-bun create astro@latest -- --template minimal
+Ravinは、「シンプル × リッチ」をコンセプトにした Astro 向けブログ・ドキュメントテーマです。
+
+ノイズのないクリーンな白黒のレイアウトを基盤としつつ、MDXによる豊かで機能的な記事表現を提供します。不要な装飾や過度なアニメーションを削ぎ落とし、読みやすさと心地よい操作感だけを追求した「最強スタイル」を目指しています。
+
+## ✨ Features
+
+- **シンプル × リッチ**: 視覚的なノイズを極限まで減らし、ホバー時のマイクロインタラクションやシームレスな画面遷移に注力。
+- **Astro & MDX**: パフォーマンスに優れたAstroの静的ビルドと、コンポーネントを埋め込めるMDXを採用。
+- **適材適所のアーキテクチャ**:
+  - 状態を持たない静的UI（Button, Callout, Marker等）はピュアな `.astro` で実装し、ゼロJSの高速描画を実現。
+  - 滑らかな開閉アニメーションが必要なアコーディオン（Spoiler）には Svelte を採用し、Astroのアイランドアーキテクチャを活かしてリッチな体験を提供。
+- **高性能な LinkCard**: クライアントサイドでのCORSエラーを回避し、ビルド時にサーバー側でOGP情報を取得して展開する軽量なブログカードを標準搭載。
+- **View Transitions**: Astro標準機能を活かしたSPAライクなシームレス遷移。
+
+## 📦 Components
+
+記事（MDX）内で直感的に呼び出せる、以下の専用コンポーネントを用意しています。
+
+- `<Callout>`: Note, Tip, Warning, Danger などの補足情報ブロック
+- `<Button>`: アクションを促すカスタムボタン
+- `<Label>`: インラインで使えるステータスバッジ
+- `<Marker>`: テキストを強調する蛍光ペン風マーカー
+- `<Link>`: ホバーアニメーションと外部リンク用アイコンを自動付与するテキストリンク
+- `<Spoiler>`: Svelteの `transition:slide` を活用した滑らかな開閉アコーディオン
+- `<LinkCard>`: URLを渡すだけでOGPを展開するビルド時生成のブログカード
+- `<NavCard>`: 内部リンクや目次用のナビゲーションカード
+
+## 🎨 Customization
+
+Ravinは、CSS変数を用いてカラーシステムを管理しています。テーマのソースコードを直接変更することなく、利用者のプロジェクト内で変数を上書きするだけで、サイト全体のアクセントカラーを自由に変更できます。
+
+例えば、メインカラーを「紫」に変更したい場合は、グローバルCSSで以下のように指定します。
+
+```css
+/* src/styles/custom.css (利用者のプロジェクト内) */
+:root {
+  /* ベースのアクセントカラーを紫に変更 */
+  --theme-info: #8b5cf6;
+  --theme-info-bg: rgba(139, 92, 246, 0.08);
+  
+  /* サポートカラーも同様に変更可能 */
+  /* --theme-success: #... */
+  /* --theme-warning: #... */
+  /* --theme-danger:  #... */
+}
 ```
 
-> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
+## 🚀 Getting Started
 
-## 🚀 Project Structure
-
-Inside of your Astro project, you'll see the following folders and files:
-
-```text
-/
-├── public/
-├── src/
-│   └── pages/
-│       └── index.astro
-└── package.json
-```
-
-Astro looks for `.astro` or `.md` files in the `src/pages/` directory. Each page is exposed as a route based on its file name.
-
-There's nothing special about `src/components/`, but that's where we like to put any Astro/React/Vue/Svelte/Preact components.
-
-Any static assets, like images, can be placed in the `public/` directory.
-
-## 🧞 Commands
-
-All commands are run from the root of the project, from a terminal:
-
-| Command                   | Action                                           |
-| :------------------------ | :----------------------------------------------- |
-| `bun install`             | Installs dependencies                            |
-| `bun dev`             | Starts local dev server at `localhost:4321`      |
-| `bun build`           | Build your production site to `./dist/`          |
-| `bun preview`         | Preview your build locally, before deploying     |
-| `bun astro ...`       | Run CLI commands like `astro add`, `astro check` |
-| `bun astro -- --help` | Get help using the Astro CLI                     |
-
-## 👀 Want to learn more?
-
-Feel free to check [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
+*(※テーマ公開後に npm インストール手順や、Astro設定ファイルへの追記方法をここに記載します)*
