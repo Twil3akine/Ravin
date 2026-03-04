@@ -1,0 +1,18 @@
+---
+layout: ../../layouts/Layout.astro
+title: テーマプレビュー
+---
+
+import Spoiler from '../../components/Spoiler.svelte';
+
+## Spoiler のテスト
+
+<Spoiler title="解答を見る（クリックで展開）" client:visible>
+  Svelteの `transition:slide` を使用することで、高機能なライブラリに頼らずとも、軽量でリッチなアコーディオンメニューを実装できます。
+
+  ```rust
+  fn main() {
+      println!("ここは隠し要素の中のコードブロックです");
+  }
+  ```
+</Spoiler>
