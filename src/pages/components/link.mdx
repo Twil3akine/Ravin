@@ -1,0 +1,22 @@
+---
+layout: "@/layouts/Layout.astro"
+title: Link (リンク)
+---
+import Link from '@/components/Link.astro';
+import Button from '@/components/Button.astro';
+
+# Link
+
+記事内で使用するカスタムリンクコンポーネントです。ホバー時に下線が伸びるアニメーションが特徴です。
+
+## Usage
+
+これは <Link href="#">通常の内部リンク</Link> の例です。
+
+外部サイトへ遷移する場合は、`external` プロパティを付与することで別タブで開き、アイコンが自動で付きます。
+<Link href="https://astro.build" external={true}>Astro 公式サイト</Link>
+
+<br/>
+<br/>
+
+<Button href="/" type="default">← トップへ戻る</Button>
