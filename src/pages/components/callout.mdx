@@ -1,28 +1,19 @@
 ---
-layout: ../../layouts/Layout.astro
-title: テーマプレビュー
+layout: "@/layouts/Layout.astro"
+title: Callout (コールアウト)
 ---
+import Callout from '@/components/Callout.astro';
+import Button from '@/components/Button.astro';
 
-import Callout from '../../components/Callout.svelte';
+# Callout
 
-# シンプル × リッチ テーマ プレビュー
+補足情報や警告を視覚的に伝えるためのコンポーネントです。
 
-これはテーマ開発用のプレビュー画面です。余計な装飾を削ぎ落としたクリーンなレイアウトと、Svelteによる機能的なコンポーネントを両立させます。
+## Usage
 
-## Callout のテスト
+<Callout type="note" title="Note">標準的な補足情報です。</Callout>
+<Callout type="tip" title="Tip">役立つヒントやベストプラクティスです。</Callout>
+<Callout type="warning" title="Warning">注意が必要な情報です。</Callout>
+<Callout type="danger" title="Danger">非推奨や破壊的な変更を示す警告です。</Callout>
 
-<Callout type="note" title="汎用テーマの設計">
-  色は変数化されているため、テーマ利用者が自身のサイトのCSSで `--theme-info` を上書きするだけで変更可能です。
-</Callout>
-
-<Callout type="tip">
-  タイトルを省略すると自動で大文字のタイプ名が入ります。
-</Callout>
-
-<Callout type="warning" title="注意点">
-  過度なアニメーションは避け、View Transitionsによるページ遷移や、コンポーネント開閉時のSvelteトランジションに留めます。
-</Callout>
-
-<Callout type="danger" title="禁止事項">
-  テーマの内部に特定のサイト固有のデータ（個人のロゴや専用カラーコード）を直接書き込んではいけません。
-</Callout>
+<Button href="/" type="default">← トップへ戻る</Button>
