@@ -1,18 +1,18 @@
 ---
-layout: ../../layouts/Layout.astro
-title: テーマプレビュー
+layout: "@/layouts/Layout.astro"
+title: Spoiler (折りたたみ)
 ---
+import Spoiler from '@/components/Spoiler.svelte';
+import Button from '@/components/Button.astro';
 
-import Spoiler from '../../components/Spoiler.svelte';
+# Spoiler
 
-## Spoiler のテスト
+クリックで滑らかに開閉するアコーディオン要素です。Svelteのトランジションを活用しています。
 
-<Spoiler title="解答を見る（クリックで展開）" client:visible>
-  Svelteの `transition:slide` を使用することで、高機能なライブラリに頼らずとも、軽量でリッチなアコーディオンメニューを実装できます。
+## Usage
 
-  ```rust
-  fn main() {
-      println!("ここは隠し要素の中のコードブロックです");
-  }
-  ```
+<Spoiler title="解答を見る" client:visible>
+  見えない要素の中に、さらにコードや画像を配置できます。
 </Spoiler>
+
+<Button href="/" type="default">← トップへ戻る</Button>
