@@ -1,17 +1,31 @@
 ---
+// src/pages/index.astro
+import Layout from "@/layouts/Layout.astro";
+import NavCard from "@/components/NavCard.astro";
 
+const components = await Astro.glob("./components/*.mdx");
 ---
 
-<html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<link rel="icon" href="/favicon.ico" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro</title>
-	</head>
-	<body>
-		<h1>Astro</h1>
-	</body>
-</html>
+<Layout title="最強スタイル v2 - ドキュメント">
+    <h1>シンプル × リッチ テーマ (v2)</h1>
+    <p>このテーマで利用可能なMDXコンポーネントの一覧です。</p>
+
+    <ul class="component-list">
+        {
+            components.map((comp) => (
+                <NavCard href={comp.url} title={comp.frontmatter.title} />
+            ))
+        }
+    </ul>
+</Layout>
+
+<style>
+    .component-list {
+        list-style: none;
+        padding: 0;
+        margin-top: 2rem;
+        display: flex;
+        flex-direction: column;
+        gap: 0.8rem;
+    }
+</style>

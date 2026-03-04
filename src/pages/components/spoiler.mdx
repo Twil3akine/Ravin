@@ -1,0 +1,18 @@
+---
+layout: "@/layouts/Layout.astro"
+title: Spoiler (折りたたみ)
+---
+import Spoiler from '@/components/Spoiler.svelte';
+import Button from '@/components/Button.astro';
+
+# Spoiler
+
+クリックで滑らかに開閉するアコーディオン要素です。Svelteのトランジションを活用しています。
+
+## Usage
+
+<Spoiler title="解答を見る" client:visible>
+  見えない要素の中に、さらにコードや画像を配置できます。
+</Spoiler>
+
+<Button href="/" type="default">← トップへ戻る</Button>
