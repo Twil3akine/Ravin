@@ -1,0 +1,58 @@
+---
+import TOC from "@/components/TOC.svelte";
+
+interface Props {
+    headings: { depth: number; slug: string; text: string }[];
+}
+
+const { headings } = Astro.props;
+---
+
+<aside class="right-sidebar">
+    <h3 class="sidebar-title">On this page</h3>
+    <TOC headings={headings} client:idle />
+</aside>
+
+<style>
+    .right-sidebar {
+        display: none;
+        width: 200px; /* 横幅を縮小 */
+        flex-shrink: 0;
+        margin-left: 2rem;
+
+        /* スクロール追従のための設定 */
+        position: sticky;
+        top: 6rem; /* サイトのヘッダー高さに合わせて調整してください */
+        align-self: flex-start; /* Flexコンテナ内でStickyを有効にするための重要プロパティ */
+
+        max-height: calc(100vh - 8rem);
+        overflow-y: auto;
+
+        /* スクロールバーの装飾（Firefox / Chrome対応） */
+        scrollbar-width: thin;
+        scrollbar-color: var(--theme-border) transparent;
+    }
+
+    /* Chrome, Safari用スクロールバーの微調整 */
+    .right-sidebar::-webkit-scrollbar {
+        width: 4px;
+    }
+    .right-sidebar::-webkit-scrollbar-thumb {
+        background-color: var(--theme-border);
+        border-radius: 4px;
+    }
+
+    @media (min-width: 1024px) {
+        .right-sidebar {
+            display: block;
+        }
+    }
+
+    .sidebar-title {
+        font-size: 0.85rem;
+        color: var(--theme-text-muted);
+        margin-bottom: 1rem;
+        font-weight: 600;
+        letter-spacing: 0.05em;
+    }
+</style>
