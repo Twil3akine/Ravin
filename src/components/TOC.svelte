@@ -2,18 +2,16 @@
     import { onMount } from "svelte";
 
     export let headings: { depth: number; slug: string; text: string }[] = [];
-    let activeId = "";
 
-    // クリックによるスクロール中かどうかを判定するフラグ
-    let isClickScrolling = false;
-    // タイマー管理用
-    let scrollTimeout: NodeJS.Timeout;
+    let activeId = "";
+    let isClickScroll = false; // スクロール連動を無視するためのフラグ
+    let timeoutId: ReturnType<typeof setTimeout>;
 
     onMount(() => {
         const observer = new IntersectionObserver(
             (entries) => {
-                // クリックによる移動中は上書きしない
-                if (isClickScrolling) return;
+                // クリックによるスクロール中は処理をスキップ
+                if (isClickScroll) return;
 
                 entries.forEach((entry) => {
                     if (entry.isIntersecting) {
@@ -29,24 +27,20 @@
             if (el) observer.observe(el);
         });
 
-        return () => {
-            observer.disconnect();
-            clearTimeout(scrollTimeout);
-        };
+        return () => observer.disconnect();
     });
 
     function handleClick(slug: string) {
         activeId = slug;
-        isClickScrolling = true;
 
-        // 既存のタイマーをクリア
-        if (scrollTimeout) clearTimeout(scrollTimeout);
+        // スクロール連動をオン・オフする処理
+        isClickScroll = true;
+        clearTimeout(timeoutId);
 
-        // ジャンプにかかる時間（約800ms〜1000ms程度）待機してから監視を再開
-        // スムーズスクロールを導入している場合は、その秒数に合わせて長めに設定してください
-        scrollTimeout = setTimeout(() => {
-            isClickScrolling = false;
-        }, 1000);
+        // 指定した時間(50ms)経過後にスクロール連動を再開
+        timeoutId = setTimeout(() => {
+            isClickScroll = false;
+        }, 50);
     }
 </script>
 

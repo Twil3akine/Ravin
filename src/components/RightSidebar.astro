@@ -10,7 +10,7 @@ const { headings } = Astro.props;
 
 <aside class="right-sidebar">
     <h3 class="sidebar-title">On this page</h3>
-    <TOC headings={headings} client:idle />
+    <TOC headings={headings} client:load />
 </aside>
 
 <style>
