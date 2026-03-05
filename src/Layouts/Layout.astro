@@ -1,9 +1,10 @@
 ---
-// src/layouts/Layout.astro
 import RightSidebar from '@/components/RightSidebar.astro';
-// CSSのカスケード制御: base -> custom の順で読み込む
 import "@/styles/base.css";
 import "@/styles/custom.css";
+import { ViewTransitions } from "astro:transitions";
+import Header from '@/components/Header.astro';
+import Footer from '@/components/Footer.astro';
 
 interface Props {
   title?: string;
@@ -20,9 +21,6 @@ const { title, headings = [], hideTOC, frontmatter } = Astro.props;
 // タイトルの決定
 const pageTitle = title || frontmatter?.title || "Ravin Theme";
 
-// TOCの表示判定
-// 1. headingsが1つ以上あるか
-// 2. hideTOC が true に設定されていないか（Props または Frontmatter）
 const shouldHideTOC = hideTOC || frontmatter?.hideTOC || false;
 const showSidebar = headings.length > 0 && !shouldHideTOC;
 ---
@@ -33,30 +31,39 @@ const showSidebar = headings.length > 0 && !shouldHideTOC;
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>{pageTitle}</title>
+    <ViewTransitions />
   </head>
   <body>
+    <Header />
     <div class="layout-container">
       <main class="main-content">
         <slot />
       </main>
 
-      {/* 条件を満たした場合のみ RightSidebar をレンダリング */}
       {showSidebar && (
         <RightSidebar headings={headings} />
       )}
     </div>
+
+    <Footer />
   </body>
 </html>
 
 <style>
-  .layout-container {
+.layout-container {
     display: flex;
     max-width: 1200px;
     margin: 0 auto;
     padding: 2rem;
+    gap: 2.5rem;
+    align-items: flex-start;
+    flex: 1;
+    width: 100%;
+    box-sizing: border-box;
   }
+
   .main-content {
     flex: 1;
-    min-width: 0; /* Flexbox内でのテキストのはみ出しを防ぐ */
+    min-width: 0;
   }
 </style>

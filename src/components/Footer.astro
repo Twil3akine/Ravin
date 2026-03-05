@@ -1,0 +1,34 @@
+---
+const currentYear = new Date().getFullYear();
+const siteTitle = "Ravin";
+---
+
+<footer class="footer">
+  <div class="footer-inner">
+    <p class="copyright">
+      &copy; {currentYear} {siteTitle}. All rights reserved.
+    </p>
+  </div>
+</footer>
+
+<style>
+  .footer {
+    border-top: 1px solid var(--theme-border);
+    background-color: var(--theme-bg);
+    margin-top: 2rem;
+  }
+
+  .footer-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 1rem 2rem;
+    text-align: center;
+  }
+
+  .copyright {
+    margin: 0;
+    font-size: 0.85rem;
+    color: var(--theme-text);
+    opacity: 0.6;
+  }
+</style>
