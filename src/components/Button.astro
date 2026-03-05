@@ -2,18 +2,19 @@
 interface Props {
     href?: string | null;
     type?: "primary" | "default";
+    [key: string]: any;
 }
 
-const { href = null, type = "primary" } = Astro.props;
+const { href = null, type = "primary", ...rest } = Astro.props;
 ---
 
 {
     href ? (
-        <a href={href} class={`btn ${type}`}>
+        <a href={href} class={`btn ${type}`} {...rest}>
             <slot />
         </a>
     ) : (
-        <button class={`btn ${type}`}>
+        <button class={`btn ${type}`} {...rest}>
             <slot />
         </button>
     )
