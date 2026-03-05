@@ -45,12 +45,15 @@ body {
         -apple-system,
         sans-serif;
     line-height: 1.7;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
 }
 
 main {
     max-width: 768px;
     margin: 0 auto;
-    padding: 4rem 1.5rem;
+    padding: 0rem 1.5rem;
 }
 
 h1,
