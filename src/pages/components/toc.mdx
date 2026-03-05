@@ -1,0 +1,27 @@
+---
+layout: "@/layouts/Layout.astro"
+title: TOC (目次)
+---
+import TOC from '@/components/TOC.svelte';
+import Button from '@/components/Button.astro';
+
+# TOC (Table of Contents)
+
+記事の見出し一覧を表示し、画面のスクロール位置に応じて現在表示されているセクションを自動でハイライトするコンポーネントです。
+
+## Usage
+
+Astroの Markdown / MDX ページで取得できる `headings` データを渡し、`client:idle` などのディレクティブを付与して使用します。以下はダミーデータを渡した表示例です。
+
+<div style={{ margin: "2rem 0", padding: "1rem", border: "1px solid var(--theme-border)", borderRadius: "8px" }}>
+  <TOC
+    headings={[
+      { depth: 2, slug: "usage", text: "Usage" },
+      { depth: 3, slug: "props", text: "Props" },
+      { depth: 2, slug: "example", text: "Example" }
+    ]}
+    client:idle
+  />
+</div>
+
+<Button href="/" type="default">← トップへ戻る</Button>
