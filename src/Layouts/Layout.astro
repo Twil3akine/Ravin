@@ -1,9 +1,9 @@
 ---
-// src/layouts/Layout.astro
 import RightSidebar from '@/components/RightSidebar.astro';
 // CSSのカスケード制御: base -> custom の順で読み込む
 import "@/styles/base.css";
 import "@/styles/custom.css";
+import { ViewTransitions } from "astro:transitions";
 
 interface Props {
   title?: string;
@@ -33,6 +33,7 @@ const showSidebar = headings.length > 0 && !shouldHideTOC;
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>{pageTitle}</title>
+    <ViewTransitions />
   </head>
   <body>
     <div class="layout-container">
