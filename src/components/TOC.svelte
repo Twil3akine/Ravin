@@ -1,15 +1,20 @@
 <script lang="ts">
     import { onMount } from "svelte";
 
-    // Astroの getHeadings() から渡される型を想定
     export let headings: { depth: number; slug: string; text: string }[] = [];
-
     let activeId = "";
+
+    // クリックによるスクロール中かどうかを判定するフラグ
+    let isClickScrolling = false;
+    // タイマー管理用
+    let scrollTimeout: NodeJS.Timeout;
 
     onMount(() => {
         const observer = new IntersectionObserver(
             (entries) => {
-                // 画面上部を通過した見出しをアクティブにする
+                // クリックによる移動中は上書きしない
+                if (isClickScrolling) return;
+
                 entries.forEach((entry) => {
                     if (entry.isIntersecting) {
                         activeId = entry.target.id;
@@ -24,8 +29,25 @@
             if (el) observer.observe(el);
         });
 
-        return () => observer.disconnect();
+        return () => {
+            observer.disconnect();
+            clearTimeout(scrollTimeout);
+        };
     });
+
+    function handleClick(slug: string) {
+        activeId = slug;
+        isClickScrolling = true;
+
+        // 既存のタイマーをクリア
+        if (scrollTimeout) clearTimeout(scrollTimeout);
+
+        // ジャンプにかかる時間（約800ms〜1000ms程度）待機してから監視を再開
+        // スムーズスクロールを導入している場合は、その秒数に合わせて長めに設定してください
+        scrollTimeout = setTimeout(() => {
+            isClickScrolling = false;
+        }, 1000);
+    }
 </script>
 
 <nav class="toc" aria-label="Table of Contents">
@@ -35,6 +57,7 @@
                 <a
                     href="#{heading.slug}"
                     class:active={activeId === heading.slug}
+                    on:click={() => handleClick(heading.slug)}
                 >
                     {heading.text}
                 </a>
