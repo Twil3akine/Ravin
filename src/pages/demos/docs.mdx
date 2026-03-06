@@ -1,0 +1,91 @@
+---
+layout: '@/layouts/Layout.astro'
+title: ドキュメントのデモ
+---
+
+import Breadcrumbs from '@/components/Breadcrumbs.astro';
+import Callout from '@/components/Callout.astro';
+import Steps from '@/components/Steps.astro';
+import Tabs from '@/components/Tabs.astro';
+import CodeBlock from '@/components/CodeBlock.astro';
+import Table from '@/components/Table.astro';
+import NavCard from '@/components/NavCard.astro';
+import Label from '@/components/Label.astro';
+import Button from '@/components/Button.astro';
+
+<Breadcrumbs />
+
+# Ravin セットアップガイド <Label type="info">v0.1</Label>
+
+このドキュメントでは、Ravinテーマのインストールから初期設定までの手順を解説します。
+
+<Callout type="warning" title="Warning">
+  現在提供しているのはベータ版です。本番環境での利用の際は、事前に十分なテストを行ってください。
+</Callout>
+
+## 1. インストール手順
+
+お使いのパッケージマネージャーに合わせて、以下のコマンドを実行してください。
+
+<Tabs labels={['npm', 'pnpm', 'yarn']}>
+  <div>
+    <CodeBlock>
+    ```bash
+    npm install ravin
+    ```
+    </CodeBlock>
+  </div>
+  <div>
+    <CodeBlock>
+    ```bash
+    pnpm add ravin
+    ```
+    </CodeBlock>
+  </div>
+  <div>
+    <CodeBlock>
+    ```bash
+    yarn add ravin
+    ```
+    </CodeBlock>
+  </div>
+</Tabs>
+
+## 2. 初期セットアップ
+
+<Steps>
+1. **プロジェクトの初期化**
+
+   Astroプロジェクトを作成し、ディレクトリに移動します。
+2. **設定ファイルの編集**
+
+   `astro.config.mjs` を開き、Ravinをインテグレーションに追加します。
+3. **開発サーバーの起動**
+
+   `npm run dev` でローカルサーバーを起動し、表示を確認します。
+</Steps>
+
+## 3. プロパティ一覧
+
+ドキュメント内でAPIリファレンスなどを記述する際は、Tableコンポーネントを使用します。
+
+<Table>
+| プロパティ | 型 | 必須 | 説明 |
+| :--- | :--- | :--- | :--- |
+| `title` | `string` | 〇 | 記事またはドキュメントのタイトル |
+| `date` | `Date` | △ | 公開日（ブログ用途で推奨） |
+| `tags` | `string[]` | △ | 関連するタグの配列 |
+</Table>
+
+## 次のステップ
+
+基本設定が完了したら、次はコンポーネントの使い方を学びましょう。ドキュメントのフッターナビゲーションにはNavCardが適しています。
+
+<ul style="list-style: none; padding: 0; display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-top: 1.5rem;">
+  <NavCard href="/demos/blog" title="ブログデモを見る" />
+  <NavCard href="/components/tabs" title="Tabsコンポーネント詳細" />
+</ul>
+
+<br />
+<br />
+<Button href="/" type="default">← トップへ戻る</Button>

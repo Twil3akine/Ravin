@@ -1,0 +1,101 @@
+---
+export interface Props {
+  labels: string[];
+}
+const { labels } = Astro.props;
+---
+<ravin-tabs class="tabs-container">
+  <div class="tab-list" role="tablist">
+    {labels.map((label, i) => (
+      <button
+        role="tab"
+        aria-selected={i === 0 ? "true" : "false"}
+        tabindex={i === 0 ? 0 : -1}
+        class={i === 0 ? "active" : ""}
+      >
+        {label}
+      </button>
+    ))}
+  </div>
+  <div class="tab-panels">
+    <slot />
+  </div>
+</ravin-tabs>
+
+<script>
+  class RavinTabs extends HTMLElement {
+    constructor() {
+      super();
+      const buttons = this.querySelectorAll('[role="tab"]');
+      // <slot /> によって展開された直下の子要素群をパネルとして取得
+      const panels = Array.from(this.querySelector('.tab-panels')?.children || []);
+
+      // 初期化: 2番目以降のパネルを隠す
+      panels.forEach((panel, i) => {
+        if (i !== 0) panel.setAttribute('hidden', '');
+      });
+
+      buttons.forEach((btn, i) => {
+        btn.addEventListener('click', () => {
+          // すべてリセット
+          buttons.forEach(b => {
+            b.setAttribute('aria-selected', 'false');
+            b.setAttribute('tabindex', '-1');
+            b.classList.remove('active');
+          });
+          panels.forEach(p => p.setAttribute('hidden', ''));
+
+          // クリックされたものをアクティブに
+          btn.setAttribute('aria-selected', 'true');
+          btn.setAttribute('tabindex', '0');
+          btn.classList.add('active');
+          if (panels[i]) panels[i].removeAttribute('hidden');
+        });
+      });
+    }
+  }
+  customElements.define('ravin-tabs', RavinTabs);
+</script>
+
+<style is:global>
+  .tabs-container {
+    display: block;
+    margin: 1.5rem 0;
+    border: 1px solid var(--theme-border);
+    border-radius: 6px;
+    overflow: hidden;
+  }
+  .tab-list {
+    display: flex;
+    background: var(--theme-bg-sub);
+    border-bottom: 1px solid var(--theme-border);
+    overflow-x: auto;
+  }
+  .tab-list button {
+    padding: 0.6rem 1.25rem;
+    border: none;
+    background: transparent;
+    color: var(--theme-text-muted);
+    font-size: 0.875rem;
+    font-weight: 500;
+    cursor: pointer;
+    border-bottom: 2px solid transparent;
+    transition: all 0.2s;
+  }
+  .tab-list button:hover {
+    color: var(--theme-text);
+  }
+  .tab-list button.active {
+    color: var(--theme-text);
+    border-bottom-color: var(--theme-accent);
+    background: var(--theme-bg);
+  }
+  .tab-panels {
+    padding: 1.5rem;
+    background: var(--theme-bg);
+  }
+  /* パネル内のCodeBlockはマージンを消す（見た目を整えるため） */
+  .tab-panels > div > .code-block-wrapper {
+    margin: 0;
+  }
+</style>

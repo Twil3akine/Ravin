@@ -1,0 +1,56 @@
+---
+---
+<div class="steps-wrapper">
+  <slot />
+</div>
+
+<style is:global>
+  .steps-wrapper > ol {
+    list-style: none;
+    counter-reset: step;
+    padding-left: 0;
+    margin: 1.5rem 0;
+  }
+  .steps-wrapper > ol > li {
+    position: relative;
+    padding-left: 2.75rem;
+    margin-bottom: 1.5rem;
+    line-height: 1.6;
+  }
+  /* 丸い数字（ちょぼ） */
+  .steps-wrapper > ol > li::before {
+    counter-increment: step;
+    content: counter(step);
+    position: absolute;
+    left: 0;
+    top: calc((1.6em - 1.75rem) / 2);
+    width: 1.75rem;
+    height: 1.75rem;
+    border-radius: 50%;
+    background: var(--theme-accent);
+    color: var(--theme-bg);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.875rem;
+    font-weight: 600;
+    z-index: 2;
+  }
+  /* 縦線 */
+  .steps-wrapper > ol > li::after {
+    content: '';
+    position: absolute;
+    /* 丸の幅(1.75rem)の正確な中心(0.875rem)に配置し、自身の幅の半分を戻すことで完璧に中央揃えにする */
+    left: 0.875rem;
+    transform: translateX(-50%);
+    /* 線の開始位置を丸の少し下から、終了位置を次の要素までしっかり伸ばす */
+    top: calc(((1.6em - 1.75rem) / 2) + 1.75rem);
+    bottom: -1.5rem;
+    width: 2px;
+    background: var(--theme-border);
+    z-index: 1;
+  }
+  .steps-wrapper > ol > li:last-child::after {
+    display: none;
+  }
+</style>

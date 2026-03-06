@@ -1,0 +1,32 @@
+---
+---
+<div class="table-container">
+  <slot />
+</div>
+
+<style is:global>
+  .table-container {
+    overflow-x: auto;
+    margin: 1.5rem 0;
+    border: 1px solid var(--theme-border);
+    border-radius: 4px;
+  }
+  .table-container table {
+    width: 100%;
+    border-collapse: collapse;
+    text-align: left;
+    font-size: 0.875rem;
+  }
+  .table-container th,
+  .table-container td {
+    padding: 0.75rem 1rem;
+    border-bottom: 1px solid var(--theme-border);
+  }
+  .table-container th {
+    background: var(--theme-bg-sub);
+    font-weight: 600;
+  }
+  .table-container tr:last-child td {
+    border-bottom: none;
+  }
+</style>
