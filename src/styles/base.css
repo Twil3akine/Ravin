@@ -18,12 +18,10 @@
   --theme-danger-bg: rgba(239, 68, 68, 0.08);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --theme-bg: #0a0a0a;
-    --theme-text: #ededed;
-    --theme-border: #262626;
-  }
+:root[data-theme="dark"] {
+  --theme-bg: #0a0a0a;
+  --theme-text: #ededed;
+  --theme-border: #262626;
 }
 
 :focus-visible {

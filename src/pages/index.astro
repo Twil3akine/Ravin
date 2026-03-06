@@ -1,44 +1,74 @@
 ---
-import Layout from '@/layouts/Layout.astro';
-import NavCard from '@/components/NavCard.astro';
-
-const components = await Astro.glob('./components/*.mdx');
-const demos = await Astro.glob('./demos/*.mdx');
+import Layout from "@/layouts/Layout.astro";
+import Button from "@/components/Button.astro";
+import NavCard from "@/components/NavCard.astro";
+import Label from "@/components/Label.astro";
 ---
 
-<Layout title="Ravin - ドキュメント">
-  <h1>Ravin</h1>
+<Layout title="Ravin Theme - Minimal & Rich Astro Theme">
+  <div class="hero">
+    <Label type="info">v0.1 Beta</Label>
+    <h1 class="title">Focus on your <span class="accent">content.</span></h1>
+    <p class="description">
+      Ravinは、シンプルさとリッチな表現を両立したAstroテーマです。<br />
+      ノイズを極限まで減らしたモノトーン基調のデザインが、あなたの文章を際立たせます。
+    </p>
+    <div class="actions">
+      <Button href="/demos/docs" type="primary">ドキュメントを見る</Button>
+      <Button href="/components" type="default">コンポーネント一覧</Button>
+    </div>
+  </div>
 
-  <p>このテーマで利用可能なMDXコンポーネントの一覧です。</p>
-
-  <ul class="list">
-    {
-      components.map((comp) => (
-        <NavCard href={comp.url} title={comp.frontmatter.title} />
-      ))
-    }
-  </ul>
-
-  <br />
-
-  <p>このテーマで利用可能なMDXコンポーネントを利用したデモページの一覧です。</p>
-
-  <ul class="list">
-    {
-      demos.map((demo) => (
-        <NavCard href={demo.url} title={demo.frontmatter.title} />
-      ))
-    }
-  </ul>
+  <section class="features">
+    <h2>Use Cases</h2>
+    <p style="color: var(--theme-text-muted); margin-bottom: 2rem;">
+      ブログ、ドキュメント、ポートフォリオ。Ravinは必要なパーツを組み合わせるだけで、どんな用途にも柔軟に対応します。
+    </p>
+    <ul
+      style="list-style: none; padding: 0; display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-top: 1.5rem;"
+    >
+      <NavCard href="/demos/blog" title="ブログ構成のデモ" />
+      <NavCard href="/demos/docs" title="ドキュメント構成のデモ" />
+    </ul>
+  </section>
 </Layout>
 
 <style>
-  .list {
-    list-style: none;
-    padding: 0;
-    margin-top: 2rem;
+  .hero {
+    padding: 4rem 0 6rem;
+    text-align: center;
+    border-bottom: 1px solid var(--theme-border);
+    margin-bottom: 4rem;
+  }
+  .title {
+    font-size: 3.5rem;
+    font-weight: 800;
+    letter-spacing: -0.04em;
+    margin: 1.5rem 0;
+    line-height: 1.1;
+  }
+  .title .accent {
+    color: var(--theme-accent);
+  }
+  .description {
+    font-size: 1.125rem;
+    color: var(--theme-text-muted);
+    max-width: 600px;
+    margin: 0 auto 2.5rem;
+    line-height: 1.6;
+  }
+  .actions {
     display: flex;
-    flex-direction: column;
-    gap: 0.8rem;
+    justify-content: center;
+    gap: 1rem;
+  }
+  .features h2 {
+    font-size: 1.5rem;
+    margin-bottom: 0.5rem;
+  }
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 1.5rem;
   }
 </style>
