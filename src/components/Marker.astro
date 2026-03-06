@@ -1,50 +1,50 @@
 ---
 interface Props {
-    type?: "info" | "success" | "warning" | "danger";
+  type?: 'info' | 'success' | 'warning' | 'danger';
 }
 
-const { type = "info" } = Astro.props;
+const { type = 'info' } = Astro.props;
 ---
 
 <mark class={`marker ${type}`}>
-    <slot />
+  <slot />
 </mark>
 
 <style>
-    .marker {
-        background-color: transparent;
-        padding: 0 0.2em;
-        font-weight: 600;
-        color: inherit;
-        border-radius: 2px;
-    }
+  .marker {
+    background-color: transparent;
+    padding: 0 0.2em;
+    font-weight: 600;
+    color: inherit;
+    border-radius: 2px;
+  }
 
-    .info {
-        background-image: linear-gradient(
-            to top,
-            color-mix(in srgb, var(--theme-info) 40%, transparent) 40%,
-            transparent 40%
-        );
-    }
-    .success {
-        background-image: linear-gradient(
-            to top,
-            color-mix(in srgb, var(--theme-success) 40%, transparent) 40%,
-            transparent 40%
-        );
-    }
-    .warning {
-        background-image: linear-gradient(
-            to top,
-            color-mix(in srgb, var(--theme-warning) 40%, transparent) 40%,
-            transparent 40%
-        );
-    }
-    .danger {
-        background-image: linear-gradient(
-            to top,
-            color-mix(in srgb, var(--theme-danger) 40%, transparent) 40%,
-            transparent 40%
-        );
-    }
+  .info {
+    background-image: linear-gradient(
+      to top,
+      color-mix(in srgb, var(--theme-info) 40%, transparent) 40%,
+      transparent 40%
+    );
+  }
+  .success {
+    background-image: linear-gradient(
+      to top,
+      color-mix(in srgb, var(--theme-success) 40%, transparent) 40%,
+      transparent 40%
+    );
+  }
+  .warning {
+    background-image: linear-gradient(
+      to top,
+      color-mix(in srgb, var(--theme-warning) 40%, transparent) 40%,
+      transparent 40%
+    );
+  }
+  .danger {
+    background-image: linear-gradient(
+      to top,
+      color-mix(in srgb, var(--theme-danger) 40%, transparent) 40%,
+      transparent 40%
+    );
+  }
 </style>
