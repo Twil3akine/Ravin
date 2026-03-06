@@ -1,0 +1,38 @@
+---
+layout: '@/layouts/Layout.astro'
+title: Toggle (トグル)
+---
+
+import Toggle from '@/components/Toggle.svelte';
+import Button from '@/components/Button.astro';
+import Callout from '@/components/Callout.astro';
+
+# Toggle
+
+ON/OFFの状態を切り替えるためのシンプルなスイッチコンポーネントです。
+
+## Usage
+
+<Callout type="note" title="Note">
+  このコンポーネントはSvelteで構築されています。MDX内などでインタラクティブに状態を切り替えるには `client:load` ディレクティブが必要です。
+</Callout>
+
+### デフォルト（OFF）
+<div style="margin: 1.5rem 0;">
+  <Toggle client:load />
+</div>
+
+### 初期状態がON
+`checked={true}` を渡すことで、初期状態をONにできます。
+<div style="margin: 1.5rem 0;">
+  <Toggle checked={true} client:load />
+</div>
+
+### 無効化（Disabled）
+`disabled={true}` を渡すと、クリックできない状態になります。
+<div style="display: flex; gap: 1rem; margin: 1.5rem 0;">
+  <Toggle disabled={true} client:load />
+  <Toggle checked={true} disabled={true} client:load />
+</div>
+
+<Button href="/" type="default">← トップへ戻る</Button>

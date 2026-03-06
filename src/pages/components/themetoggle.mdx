@@ -1,0 +1,26 @@
+---
+layout: '@/layouts/Layout.astro'
+title: ThemeToggle (テーマ切り替え)
+---
+
+import ThemeToggle from '@/components/ThemeToggle.svelte';
+import Button from '@/components/Button.astro';
+import Callout from '@/components/Callout.astro';
+
+# ThemeToggle
+
+ライトモードとダークモードを切り替えるための専用コンポーネントです。内部で `Toggle` コンポーネントを使用しています。
+
+## Usage
+
+実際のサイト上でアイコン付きのトグルとして表示され、操作するとHTMLの `data-theme` 属性と `localStorage` が自動的に更新されます。
+
+<div style="margin: 1.5rem 0; padding: 2rem; border: 1px solid var(--theme-border); border-radius: 8px; display: inline-block;">
+  <ThemeToggle client:load />
+</div>
+
+<Callout type="tip" title="Tip">
+  通常、このコンポーネントは記事内ではなく、`Layout.astro` の中で `Header` コンポーネントの `slot="actions"` に配置して、サイト全体で共通利用します。
+</Callout>
+
+<Button href="/" type="default">← トップへ戻る</Button>
