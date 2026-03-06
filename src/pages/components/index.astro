@@ -1,0 +1,44 @@
+---
+import Layout from "@/layouts/Layout.astro";
+import NavCard from "@/components/NavCard.astro";
+import PostHeader from "@/components/PostHeader.astro";
+---
+
+<Layout title="Components - Ravin Theme">
+  <PostHeader title="Components" tags={["UI", "Design System"]} />
+
+  <p style="color: var(--theme-text-muted); margin-bottom: 3rem;">
+    Ravinで利用可能なすべてのコンポーネントのリストです。MDXやAstroファイル内で自由に組み合わせて使用できます。
+  </p>
+
+  <div class="component-grid">
+    <NavCard href="/components/avatar" title="Avatar" />
+    <NavCard href="/components/breadcrumbs" title="Breadcrumbs" />
+    <NavCard href="/components/button" title="Button" />
+    <NavCard href="/components/callout" title="Callout" />
+    <NavCard href="/components/codeblock" title="CodeBlock" />
+    <NavCard href="/components/label" title="Label" />
+    <NavCard href="/components/link" title="Link" />
+    <NavCard href="/components/linkcard" title="LinkCard" />
+    <NavCard href="/components/marker" title="Marker" />
+    <NavCard href="/components/navcard" title="NavCard" />
+    <NavCard href="/components/postheader" title="PostHeader" />
+    <NavCard href="/components/spoiler" title="Spoiler" />
+    <NavCard href="/components/steps" title="Steps" />
+    <NavCard href="/components/table" title="Table" />
+    <NavCard href="/components/tabs" title="Tabs" />
+    <NavCard href="/components/themetoggle" title="ThemeToggle" />
+    <NavCard href="/components/toc" title="TOC" />
+    <NavCard href="/components/toggle" title="Toggle" />
+  </div>
+</Layout>
+
+<style>
+  .component-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+    gap: 1rem;
+    list-style: none;
+    padding: 0;
+  }
+</style>
