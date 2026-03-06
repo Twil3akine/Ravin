@@ -1,0 +1,24 @@
+---
+layout: '@/layouts/Layout.astro'
+title: Table (テーブル)
+---
+
+import Table from '@/components/Table.astro';
+import Button from '@/components/Button.astro';
+
+# Table
+
+表形式のデータを表示するためのコンポーネントです。
+画面幅が狭い場合は横スクロールが可能になります。
+
+## Usage
+
+<Table>
+| プロパティ | 型 | 説明 |
+| :--- | :--- | :--- |
+| `title` | `string` | コンポーネントのタイトルを指定します。 |
+| `href` | `string` | リンク先のURLを指定します。 |
+| `disabled` | `boolean` | 無効状態にするかどうかを指定します。 |
+</Table>
+
+<Button href="/" type="default">← トップへ戻る</Button>
