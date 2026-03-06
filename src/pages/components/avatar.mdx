@@ -1,0 +1,32 @@
+---
+layout: '@/layouts/Layout.astro'
+title: Avatar (アバター)
+---
+
+import Avatar from '@/components/Avatar.astro';
+import Button from '@/components/Button.astro';
+
+# Avatar
+
+ユーザーのプロフィール画像やイニシャルを表示するためのコンポーネントです。
+
+## Usage
+
+### 画像を使用する場合
+<div style={{ display: 'flex', gap: '1rem', alignItems: 'center' }}>
+  <Avatar src="https://avatars.githubusercontent.com/u/9919?v=4" alt="GitHub" size="lg" />
+  <Avatar src="https://avatars.githubusercontent.com/u/9919?v=4" alt="GitHub" size="md" />
+  <Avatar src="https://avatars.githubusercontent.com/u/9919?v=4" alt="GitHub" size="sm" />
+</div>
+
+### イニシャルを使用する場合（フォールバック）
+<div style={{ display: 'flex', gap: '1rem', alignItems: 'center', marginTop: '1rem' }}>
+  <Avatar initials="Ravin" size="lg" />
+  <Avatar initials="Ravin" size="md" />
+  <Avatar initials="Ravin" size="sm" />
+</div>
+
+<br />
+<br />
+
+<Button href="/" type="default">← トップへ戻る</Button>
