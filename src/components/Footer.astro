@@ -1,14 +1,27 @@
 ---
+export interface Props {
+  siteTitle?: string;
+}
+
+const { siteTitle = "Ravin" } = Astro.props;
 const currentYear = new Date().getFullYear();
-const siteTitle = 'Ravin';
 ---
 
 <footer class="footer">
   <div class="footer-inner">
-    <p class="copyright">
-      &copy; {currentYear}
-      {siteTitle}. All rights reserved.
-    </p>
+    <div class="footer-content">
+      {
+        Astro.slots.has("default") && (
+          <div class="footer-actions">
+            <slot />
+          </div>
+        )
+      }
+      <p class="copyright">
+        &copy; {currentYear}
+        {siteTitle}. All rights reserved.
+      </p>
+    </div>
   </div>
 </footer>
 
@@ -18,18 +31,38 @@ const siteTitle = 'Ravin';
     background-color: var(--theme-bg);
     margin-top: 2rem;
   }
-
   .footer-inner {
     max-width: 1200px;
     margin: 0 auto;
-    padding: 1rem 2rem;
-    text-align: center;
+    padding: 2rem; /* 上下の余白を少し広げてゆったりと */
   }
-
+  .footer-content {
+    display: flex;
+    flex-direction: column; /* 縦並びに変更 */
+    justify-content: center;
+    align-items: center;
+    gap: 1rem; /* アイコンとコピーライトの隙間 */
+  }
   .copyright {
     margin: 0;
     font-size: 0.85rem;
     color: var(--theme-text);
     opacity: 0.6;
+    text-align: center;
+  }
+  .footer-actions {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem; /* アイコンが複数ある場合の隙間 */
+  }
+  /* スロットで渡されたリンクのスタイルとホバー設定 */
+  .footer-actions :global(a) {
+    color: var(--theme-text-muted);
+    transition: color 0.2s ease;
+    display: flex;
+    align-items: center;
+  }
+  .footer-actions :global(a:hover) {
+    color: var(--theme-accent);
   }
 </style>
