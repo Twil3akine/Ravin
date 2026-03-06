@@ -1,46 +1,44 @@
 ---
-import Layout from "@/Layouts/Layout.astro";
-import NavCard from "@/components/NavCard.astro";
+import Layout from '@/Layouts/Layout.astro';
+import NavCard from '@/components/NavCard.astro';
 
-const components = await Astro.glob("./components/*.mdx");
-const demos = await Astro.glob("./demos/*.mdx");
+const components = await Astro.glob('./components/*.mdx');
+const demos = await Astro.glob('./demos/*.mdx');
 ---
 
 <Layout title="Ravin - ドキュメント">
-    <h1>Ravin</h1>
+  <h1>Ravin</h1>
 
-    <p>このテーマで利用可能なMDXコンポーネントの一覧です。</p>
+  <p>このテーマで利用可能なMDXコンポーネントの一覧です。</p>
 
-    <ul class="list">
-        {
-            components.map((comp) => (
-                <NavCard href={comp.url} title={comp.frontmatter.title} />
-            ))
-        }
-    </ul>
+  <ul class="list">
+    {
+      components.map((comp) => (
+        <NavCard href={comp.url} title={comp.frontmatter.title} />
+      ))
+    }
+  </ul>
 
-    <br />
+  <br />
 
-    <p>
-        このテーマで利用可能なMDXコンポーネントを利用したデモページの一覧です。
-    </p>
+  <p>このテーマで利用可能なMDXコンポーネントを利用したデモページの一覧です。</p>
 
-    <ul class="list">
-        {
-            demos.map((demo) => (
-                <NavCard href={demo.url} title={demo.frontmatter.title} />
-            ))
-        }
-    </ul>
+  <ul class="list">
+    {
+      demos.map((demo) => (
+        <NavCard href={demo.url} title={demo.frontmatter.title} />
+      ))
+    }
+  </ul>
 </Layout>
 
 <style>
-    .list {
-        list-style: none;
-        padding: 0;
-        margin-top: 2rem;
-        display: flex;
-        flex-direction: column;
-        gap: 0.8rem;
-    }
+  .list {
+    list-style: none;
+    padding: 0;
+    margin-top: 2rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.8rem;
+  }
 </style>

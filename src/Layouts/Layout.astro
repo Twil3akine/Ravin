@@ -1,8 +1,8 @@
 ---
 import RightSidebar from '@/components/RightSidebar.astro';
-import "@/styles/base.css";
-import "@/styles/custom.css";
-import { ViewTransitions } from "astro:transitions";
+import '@/styles/base.css';
+import '@/styles/custom.css';
+import { ViewTransitions } from 'astro:transitions';
 import Header from '@/components/Header.astro';
 import Footer from '@/components/Footer.astro';
 
@@ -19,19 +19,38 @@ interface Props {
 const { title, headings = [], hideTOC, frontmatter } = Astro.props;
 
 // タイトルの決定
-const pageTitle = title || frontmatter?.title || "Ravin Theme";
+const pageTitle = title || frontmatter?.title || 'Ravin Theme';
 
 const shouldHideTOC = hideTOC || frontmatter?.hideTOC || false;
 const showSidebar = headings.length > 0 && !shouldHideTOC;
 ---
 
-<!DOCTYPE html>
+<!doctype html>
 <html lang="ja">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>{pageTitle}</title>
     <ViewTransitions />
+
+    <style>
+      .layout-container {
+        display: flex;
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 2rem;
+        gap: 2.5rem;
+        align-items: flex-start;
+        flex: 1;
+        width: 100%;
+        box-sizing: border-box;
+      }
+
+      .main-content {
+        flex: 1;
+        min-width: 0;
+      }
+    </style>
   </head>
   <body>
     <Header />
@@ -40,30 +59,9 @@ const showSidebar = headings.length > 0 && !shouldHideTOC;
         <slot />
       </main>
 
-      {showSidebar && (
-        <RightSidebar headings={headings} />
-      )}
+      {showSidebar && <RightSidebar headings={headings} />}
     </div>
 
     <Footer />
   </body>
 </html>
-
-<style>
-.layout-container {
-    display: flex;
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 2rem;
-    gap: 2.5rem;
-    align-items: flex-start;
-    flex: 1;
-    width: 100%;
-    box-sizing: border-box;
-  }
-
-  .main-content {
-    flex: 1;
-    min-width: 0;
-  }
-</style>

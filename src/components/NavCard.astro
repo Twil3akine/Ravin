@@ -1,36 +1,36 @@
 ---
 // src/components/NavCard.astro
 interface Props {
-    href: string | undefined;
-    title: string;
+  href: string | undefined;
+  title: string;
 }
 
 const { href, title } = Astro.props;
 ---
 
 <li>
-    <a href={href} class="nav-card">
-        {title}
-    </a>
+  <a href={href} class="nav-card">
+    {title}
+  </a>
 </li>
 
 <style>
-    .nav-card {
-        display: block;
-        padding: 1rem 1.2rem;
-        background-color: transparent;
-        border: 1px solid var(--theme-border);
-        border-radius: 8px;
-        color: var(--theme-text);
-        text-decoration: none;
-        font-weight: 600;
-        transition:
-            border-color 0.2s ease,
-            background-color 0.2s ease;
-    }
+  .nav-card {
+    display: block;
+    padding: 1rem 1.2rem;
+    background-color: transparent;
+    border: 1px solid var(--theme-border);
+    border-radius: 8px;
+    color: var(--theme-text);
+    text-decoration: none;
+    font-weight: 600;
+    transition:
+      border-color 0.2s ease,
+      background-color 0.2s ease;
+  }
 
-    .nav-card:hover {
-        border-color: var(--theme-accent);
-        background-color: var(--theme-accent-bg);
-    }
+  .nav-card:hover {
+    border-color: var(--theme-accent);
+    background-color: var(--theme-accent-bg);
+  }
 </style>
