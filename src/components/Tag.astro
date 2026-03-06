@@ -1,0 +1,42 @@
+---
+interface Props {
+  href?: string;
+  class?: string;
+}
+
+const { href, class: className } = Astro.props;
+const Element = href ? "a" : "span";
+---
+
+<Element href={href} class:list={["ravin-tag", className]}>
+  <span class="hash">#</span>
+  <slot />
+</Element>
+
+<style>
+  .ravin-tag {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.15rem;
+    font-size: 0.85rem;
+    color: var(--theme-text);
+    background-color: transparent;
+    border: 1px solid var(--theme-border);
+    padding: 0.2rem 0.6rem;
+    border-radius: 9999px;
+    text-decoration: none;
+    transition:
+      border-color 0.2s ease,
+      background-color 0.2s ease;
+  }
+
+  .hash {
+    color: var(--theme-accent);
+    opacity: 0.8;
+  }
+
+  a.ravin-tag:hover {
+    border-color: var(--theme-accent);
+    background-color: var(--theme-accent-bg);
+  }
+</style>
