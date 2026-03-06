@@ -1,0 +1,32 @@
+---
+layout: '@/layouts/Layout.astro'
+title: Breadcrumbs (パンくずリスト)
+---
+
+import Breadcrumbs from '@/components/Breadcrumbs.astro';
+import Button from '@/components/Button.astro';
+
+# Breadcrumbs
+
+現在のページの階層構造を示し、ナビゲーションを助けるコンポーネントです。
+
+## Usage
+
+### 自動生成
+プロパティを渡さない場合、現在のURLから自動的にパンくずリストが生成されます。
+<Breadcrumbs />
+
+### 手動指定
+任意の階層をプロパティとして渡すことも可能です。
+<Breadcrumbs
+  crumbs={[
+    { label: "Home", href: "/" },
+    { label: "Components", href: "/components" },
+    { label: "Breadcrumbs" },
+  ]}
+/>
+
+<br />
+<br />
+
+<Button href="/" type="default">← トップへ戻る</Button>
