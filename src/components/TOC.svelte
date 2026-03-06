@@ -3,7 +3,7 @@
 
   export let headings: { depth: number; slug: string; text: string }[] = [];
 
-  let activeId = '';
+  let activeId = headings.length > 0 ? headings[0].slug : '';
   let isClickScroll = false; // スクロール連動を無視するためのフラグ
   let timeoutId: ReturnType<typeof setTimeout>;
 

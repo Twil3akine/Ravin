@@ -1,0 +1,95 @@
+---
+// src/components/Breadcrumbs.astro
+interface Crumb {
+  label: string;
+  href?: string;
+}
+
+interface Props {
+  crumbs?: Crumb[]; // 任意プロパティに変更
+}
+
+// ユーザーが明示的に渡した場合はそれを使用し、なければ自動生成する
+let { crumbs } = Astro.props;
+
+if (!crumbs) {
+  // パスを分割（例: "/demos/example" -> ["demos", "example"]）
+  const paths = Astro.url.pathname.split('/').filter(Boolean);
+
+  crumbs = [
+    { label: 'Home', href: '/' },
+    ...paths.map((path, index) => {
+      const href = '/' + paths.slice(0, index + 1).join('/');
+      const isLast = index === paths.length - 1;
+
+      // 先頭を大文字にしてラベル化（例: "demos" -> "Demos"）
+      const label = path.charAt(0).toUpperCase() + path.slice(1);
+
+      return {
+        label,
+        href: isLast ? undefined : href,
+      };
+    }),
+  ];
+}
+---
+
+<nav aria-label="Breadcrumb" class="breadcrumbs-nav">
+  <ol class="breadcrumbs-list">
+    {crumbs.map((crumb, index) => (
+      <li class="crumb-item">
+        {crumb.href ? (
+          <a href={crumb.href}>{crumb.label}</a>
+        ) : (
+          <span class="current" aria-current="page">{crumb.label}</span>
+        )}
+        {index < crumbs!.length - 1 && <span class="separator">/</span>}
+      </li>
+    ))}
+  </ol>
+</nav>
+
+<style>
+  .breadcrumbs-nav {
+    margin-bottom: 1.5rem;
+    font-size: 0.85rem;
+  }
+
+  .breadcrumbs-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 0.5rem;
+  }
+
+  .crumb-item {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+
+  a {
+    color: var(--theme-text);
+    opacity: 0.6;
+    text-decoration: none;
+    transition: opacity 0.2s ease, color 0.2s ease;
+  }
+
+  a:hover {
+    opacity: 1;
+    color: var(--theme-accent);
+  }
+
+  .current {
+    color: var(--theme-text);
+    font-weight: 500;
+  }
+
+  .separator {
+    color: var(--theme-border);
+    user-select: none;
+  }
+</style>
