@@ -13,10 +13,10 @@ vi.stubGlobal('IntersectionObserver', IntersectionObserverMock);
 // 2. Element.prototype.animateをモック化し、即座に完了させる (Spoilerのtransition用)
 if (!Element.prototype.animate) {
   Element.prototype.animate = vi.fn().mockImplementation(() => {
-    const animation: any = {
+    const animation = {
       finished: Promise.resolve(),
       cancel: vi.fn(),
-      onfinish: null,
+      onfinish: null as (() => void) | null,
       play: vi.fn(),
       pause: vi.fn(),
     };
