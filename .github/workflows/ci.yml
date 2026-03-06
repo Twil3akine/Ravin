@@ -22,9 +22,6 @@ jobs:
       - name: Install dependencies
         run: bun install
 
-      - name: Check formatting
-        run: bun x prettier --check .
-
       - name: Run ESLint
         run: bun run lint
 

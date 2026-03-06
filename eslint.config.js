@@ -15,7 +15,7 @@ export default [
       parserOptions: {
         parser: tsParser,
       },
-    },
+    }, 
   },
   {
     ignores: ['dist/**', '.astro/**', 'node_modules/**', '.github/**'],
