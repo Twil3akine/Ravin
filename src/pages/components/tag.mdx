@@ -1,0 +1,30 @@
+---
+layout: '@/layouts/Layout.astro'
+title: Tag (タグ)
+---
+
+import Tag from '@/components/Tag.astro';
+import Button from '@/components/Button.astro';
+
+# Tag
+
+記事のカテゴリーやキーワードを示すためのコンポーネントです。
+
+## Usage
+
+### リンク付きタグ
+<div style={{ display: 'flex', gap: '0.5rem' }}>
+  <Tag href="/tags/astro">Astro</Tag>
+  <Tag href="/tags/design">Design</Tag>
+</div>
+
+### リンクなしタグ（表示のみ）
+<div style={{ display: 'flex', gap: '0.5rem', marginTop: '1rem' }}>
+  <Tag>Update</Tag>
+  <Tag>News</Tag>
+</div>
+
+<br />
+<br />
+
+<Button href="/" type="default">← トップへ戻る</Button>

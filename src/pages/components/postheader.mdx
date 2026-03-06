@@ -1,0 +1,31 @@
+---
+layout: '@/layouts/Layout.astro'
+title: PostHeader (記事ヘッダー)
+---
+
+import PostHeader from '@/components/PostHeader.astro';
+import Button from '@/components/Button.astro';
+
+# PostHeader
+
+記事のタイトル、投稿日、タグなどのメタ情報をグループ化して美しく表示するコンポーネントです。
+
+## Dependencies
+
+このコンポーネントは以下の内部コンポーネントに依存しています。事前にプロジェクトへ追加してください。
+
+- [FormattedDate](/components/formatteddate)
+- [Tag](/components/tag)
+
+## Usage
+
+<PostHeader
+  title="Astro Theme Ravinの使い方"
+  date={new Date("2026-03-05")}
+  tags={["Astro", "Design", "UI/UX"]}
+/>
+
+<br />
+<br />
+
+<Button href="/" type="default">← トップへ戻る</Button>
