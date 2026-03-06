@@ -1,0 +1,89 @@
+---
+---
+<ravin-codeblock class="code-block-wrapper">
+  <div class="code-header">
+    <button class="copy-button" aria-label="Copy code" title="Copy code">
+      <svg class="copy-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
+      <svg class="check-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display: none;"><polyline points="20 6 9 17 4 12"></polyline></svg>
+    </button>
+  </div>
+  <div class="code-content">
+    <slot />
+  </div>
+</ravin-codeblock>
+
+<script>
+  class RavinCodeBlock extends HTMLElement {
+    constructor() {
+      super();
+      const copyBtn = this.querySelector('.copy-button');
+      const codeBlock = this.querySelector('.code-content pre code');
+      const copyIcon = this.querySelector('.copy-icon') as HTMLElement;
+      const checkIcon = this.querySelector('.check-icon') as HTMLElement;
+
+      if (copyBtn && codeBlock) {
+        copyBtn.addEventListener('click', async () => {
+          const code = codeBlock.textContent || '';
+          await navigator.clipboard.writeText(code);
+
+          copyIcon.style.display = 'none';
+          checkIcon.style.display = 'block';
+
+          setTimeout(() => {
+            copyIcon.style.display = 'block';
+            checkIcon.style.display = 'none';
+          }, 2000);
+        });
+      }
+    }
+  }
+  customElements.define('ravin-codeblock', RavinCodeBlock);
+</script>
+
+<style is:global>
+  .code-block-wrapper {
+    position: relative;
+    display: block;
+    border: 1px solid var(--theme-border);
+    border-radius: 6px;
+    overflow: hidden;
+    margin: 1.5rem 0;
+  }
+  .code-header {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    display: flex;
+    justify-content: flex-end; /* コピーボタンを右寄せに */
+    padding: 0.5rem;
+    pointer-events: none;
+  }
+  .copy-button {
+    pointer-events: auto;
+    background: transparent;
+    border: none;
+    color: var(--theme-bg);
+    cursor: pointer;
+    padding: 0.35rem; /* クリックしやすいように少し余白を確保 */
+    border-radius: 4px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.2s;
+  }
+  .copy-button:hover {
+    color: #fff;
+    background: rgba(255, 255, 255, 0.1);
+  }
+  .check-icon {
+    color: var(--theme-accent);
+  }
+  .code-content pre {
+    margin: 0 !important;
+    padding: 1.25rem 1rem !important; /* ファイル名がなくなったので上部の余白を通常サイズに縮小 */
+    border-radius: 0 !important;
+    font-size: 0.875rem;
+    overflow-x: auto;
+  }
+</style>
