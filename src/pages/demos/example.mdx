@@ -38,11 +38,10 @@ import Button from '@/components/Button.astro';
 スペースを節約しつつ補足情報を記載したい場合は、Spoilerを使用します。
 
 <Spoiler title="詳細な設定項目を開く" client:visible>
-  <Callout type="warning" title="Warning">
-    設定を変更する前に、必ずファイルのバックアップを取得してください。
-  </Callout>
-  内部リンクには<Link href="/components/button">通常のLink</Link>
-  も利用可能です。
+      <Callout type="warning" title="Warning">
+        <span>設定を変更する前に、必ずファイルのバックアップを取得してください。</span>
+      </Callout>
+      <span>内部リンクには<Link href="/components/button">通常のLink</Link>も利用可能です。</span>
 </Spoiler>
 
 ## 次のステップ
@@ -58,6 +57,4 @@ import Button from '@/components/Button.astro';
 <br />
 <br />
 
-<Button href="/" type="default">
-  ← トップへ戻る
-</Button>
+<Button href="/" type="default">← トップへ戻る</Button>

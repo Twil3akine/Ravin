@@ -81,6 +81,7 @@
   }
 
   .inner {
+    overflow: hidden;
     padding: 1rem 1.25rem;
   }
 
