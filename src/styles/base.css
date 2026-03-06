@@ -74,3 +74,20 @@ pre {
   border-radius: 8px;
   overflow-x: auto;
 }
+
+:not(pre) > code {
+  font-family:
+    Ubuntu mono,
+    ui-monospace,
+    SFMono-Regular,
+    Menlo,
+    Monaco,
+    Consolas,
+    monospace;
+  font-size: 1em;
+  background-color: var(--theme-bg-sub);
+  color: var(--theme-text);
+  padding: 0.2em 0.4em;
+  border-radius: 4px;
+  border: 1px solid var(--theme-border);
+}
