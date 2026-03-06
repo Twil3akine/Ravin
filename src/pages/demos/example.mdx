@@ -13,12 +13,24 @@ import Spoiler from '@/components/Spoiler.svelte';
 import NavCard from '@/components/NavCard.astro';
 import Button from '@/components/Button.astro';
 import PostHeader from '@/components/PostHeader.astro';
+import Avatar from '@/components/Avatar.astro';
+import Breadcrumbs from '@/components/Breadcrumbs.astro';
+
+<Breadcrumbs />
 
 <PostHeader
   title="Astro Theme Ravinの使い方"
   date={new Date("2026-03-05")}
   tags={["Astro", "Design"]}
 />
+
+<Avatar
+  alt="Avatar"
+  initials="Ravin"
+  size="lg"
+/>
+
+## はじめに
 
 この記事では、Ravinで利用可能な<Marker type="warning">すべての主要コンポーネント</Marker>を組み合わせて紹介します。
 
