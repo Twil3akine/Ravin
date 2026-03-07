@@ -5,6 +5,8 @@ title: PostHeader (記事ヘッダー)
 
 import PostHeader from '@/components/PostHeader.astro';
 import Button from '@/components/Button.astro';
+import Grid from '@/components/Grid.astro';
+import NavCard from '@/components/NavCard.astro';
 
 # PostHeader
 
@@ -14,8 +16,10 @@ import Button from '@/components/Button.astro';
 
 このコンポーネントは以下の内部コンポーネントに依存しています。事前にプロジェクトへ追加してください。
 
-- [FormattedDate](/components/formatteddate)
-- [Tag](/components/tag)
+<Grid>
+  <NavCard href="/components/formatteddate" title="FormattedDate" />
+  <NavCard href="/components/tag" title="Tag" />
+</Grid>
 
 ## Usage
 
