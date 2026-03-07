@@ -1,52 +1,73 @@
-# Ravin
+# Ravin - Minimal & Rich Astro Theme
 
-Ravinは、「シンプル × リッチ」をコンセプトにした Astro 向けブログ・ドキュメントテーマです。
+A clean, minimal, and content-focused Astro theme built for blogs, documentation, and portfolios. Ravin removes the noise, allowing your content to take center stage while providing a rich set of UI components.
 
-ノイズのないクリーンな白黒のレイアウトを基盤としつつ、MDXによる豊かで機能的な記事表現を提供します。不要な装飾や過度なアニメーションを削ぎ落とし、読みやすさと心地よい操作感だけを追求した「最強スタイル」を目指しています。
+**[Live Demo](https://ravin-theme.pages.dev)** | **[Component Catalog](https://ravin-theme.pages.dev/components)**
+
+<img width="1445" height="901" alt="スクリーンショット 2026-03-07 16 27 41" src="https://github.com/user-attachments/assets/e2afd780-62e5-4fa6-88da-e15148d4c739" />
 
 ## ✨ Features
 
-- **シンプル × リッチ**: 視覚的なノイズを極限まで減らし、ホバー時のマイクロインタラクションやシームレスな画面遷移に注力。
-- **Astro & MDX**: パフォーマンスに優れたAstroの静的ビルドと、コンポーネントを埋め込めるMDXを採用。
-- **適材適所のアーキテクチャ**:
-  - 状態を持たない静的UI（Button, Callout, Marker等）はピュアな `.astro` で実装し、ゼロJSの高速描画を実現。
-  - 滑らかな開閉アニメーションが必要なアコーディオン（Spoiler）には Svelte を採用し、Astroのアイランドアーキテクチャを活かしてリッチな体験を提供。
-- **高性能な LinkCard**: クライアントサイドでのCORSエラーを回避し、ビルド時にサーバー側でOGP情報を取得して展開する軽量なブログカードを標準搭載。
-- **View Transitions**: Astro標準機能を活かしたSPAライクなシームレス遷移。
+- **Content-First Design**: Minimalist, monochrome-based aesthetic that makes your typography pop.
+- **Rich Component Library**: Comes with 15+ built-in UI components (Callouts, Tabs, Steps, Spoilers, ThemeToggles, and more) ready to use in your MDX files.
+- **Dark Mode Support**: Seamless light/dark mode switching with zero flash on load.
+- **View Transitions**: Smooth, app-like page navigation built-in.
+- **Fully Responsive**: Looks beautiful on desktops, tablets, and mobile devices.
+- **MDX Ready**: Write your content in Markdown/MDX with full component support.
 
-## 📦 Components
+## 🚀 Quick Start
 
-記事（MDX）内で直感的に呼び出せる、以下の専用コンポーネントを用意しています。
+You can start a new project using the Ravin theme with a single command:
 
-- `<Callout>`: Note, Tip, Warning, Danger などの補足情報ブロック
-- `<Button>`: アクションを促すカスタムボタン
-- `<Label>`: インラインで使えるステータスバッジ
-- `<Marker>`: テキストを強調する蛍光ペン風マーカー
-- `<Link>`: ホバーアニメーションと外部リンク用アイコンを自動付与するテキストリンク
-- `<Spoiler>`: Svelteの `transition:slide` を活用した滑らかな開閉アコーディオン
-- `<LinkCard>`: URLを渡すだけでOGPを展開するビルド時生成のブログカード
-- `<NavCard>`: 内部リンクや目次用のナビゲーションカード
-
-## 🎨 Customization
-
-Ravinは、CSS変数を用いてカラーシステムを管理しています。テーマのソースコードを直接変更することなく、利用者のプロジェクト内で変数を上書きするだけで、サイト全体のアクセントカラーを自由に変更できます。
-
-例えば、メインカラーを「紫」に変更したい場合は、グローバルCSSで以下のように指定します。
-
-```css
-/* src/styles/custom.css (利用者のプロジェクト内) */
-:root {
-  /* ベースのアクセントカラーを紫に変更 */
-  --theme-info: #8b5cf6;
-  --theme-info-bg: rgba(139, 92, 246, 0.08);
-
-  /* サポートカラーも同様に変更可能 */
-  /* --theme-success: #... */
-  /* --theme-warning: #... */
-  /* --theme-danger:  #... */
-}
+```bash
+npm create astro@latest -- --template twil3akine/ravin
 ```
 
-## 🚀 Getting Started
+*(Alternatively, you can use `pnpm`, `yarn`, or `bun`)*
 
-_(※テーマ公開後に npm インストール手順や、Astro設定ファイルへの追記方法をここに記載します)_
+```bash
+bun create astro --template twil3akine/ravin
+
+```
+
+## 🛠️ Built With
+
+* [Astro](https://astro.build/) - The web framework for content-driven websites.
+* [Svelte](https://svelte.dev/) - Used for interactive components (like ThemeToggle and TOC).
+* [MDX](https://mdxjs.com/) - Markdown for the component era.
+
+## 📂 Project Structure
+
+Inside of your Ravin project, you'll see the following folders and files:
+
+```text
+/
+├── public/           # Static assets (fonts, images, icons)
+├── src/
+│   ├── components/   # Base and Composite UI components
+│   ├── layouts/      # Layout templates (Layout.astro)
+│   ├── pages/        # Astro pages and MDX content
+│   └── styles/       # Global CSS (base.css, custom.css)
+├── astro.config.mjs  # Astro configuration
+└── package.json
+
+```
+
+## 🎨 Using Components
+
+Ravin includes a variety of components to enrich your articles. Simply import them into your `.mdx` or `.astro` files:
+
+```mdx
+import Callout from '@/components/Callout.astro';
+
+<Callout type="tip" title="Pro Tip">
+  This is how you use a component in Ravin!
+</Callout>
+
+```
+
+Check out the [Component Catalog](https://www.google.com/url?sa=E&source=gmail&q=https://ravin-theme.pages.dev/components) in the live demo for a full list of available components and usage examples.
+
+## 📄 License
+
+This theme is open-source and available under the [MIT License](https://www.google.com/search?q=LICENSE).
