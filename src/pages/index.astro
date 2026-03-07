@@ -3,6 +3,7 @@ import Layout from "@/layouts/Layout.astro";
 import Button from "@/components/Button.astro";
 import NavCard from "@/components/NavCard.astro";
 import Label from "@/components/Label.astro";
+import Grid from "@/components/Grid.astro";
 ---
 
 <Layout title="Ravin Theme - Minimal & Rich Astro Theme">
@@ -22,14 +23,13 @@ import Label from "@/components/Label.astro";
   <section class="features">
     <h2>Use Cases</h2>
     <p style="color: var(--theme-text-muted); margin-bottom: 2rem;">
-      ブログ、ドキュメント、ポートフォリオ。Ravinは必要なパーツを組み合わせるだけで、どんな用途にも柔軟に対応します。
+    ブログ、ドキュメント、ポートフォリオ。Ravinは必要なパーツを組み合わせるだけで、どんな用途にも柔軟に対応します。
     </p>
-    <ul
-      style="list-style: none; padding: 0; display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-top: 1.5rem;"
-    >
-      <NavCard href="/demos/blog" title="ブログ構成のデモ" />
-      <NavCard href="/demos/docs" title="ドキュメント構成のデモ" />
-    </ul>
+
+    <Grid>
+    <NavCard href="/demos/blog" title="ブログ構成のデモ" />
+    <NavCard href="/demos/docs" title="ドキュメント構成のデモ" />
+    </Grid>
   </section>
 </Layout>
 
