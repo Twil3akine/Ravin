@@ -2,6 +2,7 @@
 import Layout from "@/layouts/Layout.astro";
 import NavCard from "@/components/NavCard.astro";
 import PostHeader from "@/components/PostHeader.astro";
+import Grid from "@/components/Grid.astro";
 ---
 
 <Layout title="Components - Ravin Theme">
@@ -11,7 +12,7 @@ import PostHeader from "@/components/PostHeader.astro";
     Ravinで利用可能なすべてのコンポーネントのリストです。MDXやAstroファイル内で自由に組み合わせて使用できます。
   </p>
 
-  <div class="component-grid">
+  <Grid>
     <NavCard href="/components/avatar" title="Avatar" />
     <NavCard href="/components/breadcrumbs" title="Breadcrumbs" />
     <NavCard href="/components/button" title="Button" />
@@ -30,15 +31,5 @@ import PostHeader from "@/components/PostHeader.astro";
     <NavCard href="/components/themetoggle" title="ThemeToggle" />
     <NavCard href="/components/toc" title="TOC" />
     <NavCard href="/components/toggle" title="Toggle" />
-  </div>
+  </Grid>
 </Layout>
-
-<style>
-  .component-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
-    gap: 1rem;
-    list-style: none;
-    padding: 0;
-  }
-</style>
