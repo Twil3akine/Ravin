@@ -1,15 +1,74 @@
 ---
-title: "初めてのRavinブログ"
+title: "Ravinで始めるシンプルでリッチなブログ運営"
 date: 2026-03-08
-tags: ["Blog", "Welcome"]
-description: "Ravinで構築したブログの最初の記事です。"
+tags: ["Blog", "Astro", "Design", "Welcome"]
+description: "Ravinテーマを使ったブログ機能の紹介と、豊富に用意されたコンポーネントによるリッチな表現のデモです。"
 ---
 
-Ravinテーマへようこそ！
+import Callout from '@/components/Callout.astro';
+import CodeBlock from '@/components/CodeBlock.astro';
+import Tabs from '@/components/Tabs.astro';
+import Marker from '@/components/Marker.astro';
+import Spoiler from '@/components/Spoiler.svelte';
 
-この記事は `src/content/blog/hello-world.mdx` に配置されています。
-`.mdx` ファイル内でAstroの各コンポーネントを自由に呼び出すことができます。
+Ravinテーマへようこそ。この記事は `src/content/blog` ディレクトリに配置されたMDXファイルから生成されています。
 
-```javascript
-console.log("Hello, Ravin!");
-```
+## Focus on your content.
+
+Ravinは、<Marker type="info">シンプルさとリッチな表現</Marker>を両立したAstroテーマです。
+
+ノイズの少ないモノトーン基調のデザインが、あなたの文章を際立たせます。しかしながら、ただシンプルなだけではありません。Ravinには、記事をより魅力的で分かりやすくするための**豊富なカスタムコンポーネント**が組み込まれています。
+
+<Callout type="note" title="ヒント">
+  MDXを利用することで、Markdownの書きやすさとAstro/Svelteコンポーネントの表現力を同じファイル内でシームレスに同居させることができます。
+</Callout>
+
+## コードの表現力
+
+技術ブログにおいて、ソースコードの読みやすさは非常に重要です。Ravinの `CodeBlock` コンポーネントを使えば、きれいにフォーマットされたコードをコピーボタン付きで配置できます。
+
+もちろん、`Tabs` コンポーネントと組み合わせることも可能です。
+
+<Tabs labels={["JavaScript", "Python", "Rust"]}>
+  <div>
+    <CodeBlock>
+    ```javascript
+    function greet(name) {
+      console.log(`Hello, ${name}! Welcome to Ravin.`);
+    }
+    greet("Astro");
+    ```
+    </CodeBlock>
+  </div>
+  <div>
+    <CodeBlock>
+    ```python
+    def greet(name):
+        print(f"Hello, {name}! Welcome to Ravin.")
+        
+    greet("Astro")
+    ```
+    </CodeBlock>
+  </div>
+  <div>
+    <CodeBlock>
+    ```rust
+    fn main() {
+        let name = "Astro";
+        println!("Hello, {}! Welcome to Ravin.", name);
+    }
+    ```
+    </CodeBlock>
+  </div>
+</Tabs>
+
+## 読者を飽きさせないギミック
+
+長すぎる補足情報や、ネタバレを含む内容は、Svelteで作成された `Spoiler` コンポーネントの中に隠すことができます。
+
+<Spoiler title="開発の裏話を見る" client:visible>
+  <span>Ravinの開発当初はもっとカラフルなデザインを想定していましたが、最終的に「コンテンツが主役」という考えから今の洗練されたモノトーンに落ち着きました。</span>
+</Spoiler>
+
+このように、Ravinを使えば誰でも簡単に **「シンプルかつリッチ」** なサイトを立ち上げることができます。ぜひ他のデモやドキュメントもご覧ください。
+
