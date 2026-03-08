@@ -8,6 +8,7 @@ import Button from '@/components/Button.astro';
 import Callout from '@/components/Callout.astro';
 import Grid from '@/components/Grid.astro';
 import NavCard from '@/components/NavCard.astro';
+import Tabs from '@/components/Tabs.astro';
 
 # ThemeToggle
 
@@ -25,9 +26,22 @@ import NavCard from '@/components/NavCard.astro';
 
 実際のサイト上でアイコン付きのトグルとして表示され、操作するとHTMLの `data-theme` 属性と `localStorage` が自動的に更新されます。
 
-<div style="margin: 1.5rem 0; padding: 2rem; border: 1px solid var(--theme-border); border-radius: 8px; display: inline-block;">
-  <ThemeToggle client:load />
-</div>
+<Callout type="note" title="Note">
+  このコンポーネントはSvelteで構築されています。MDX内などでインタラクティブに動作させるには `client:load` などのクライアントディレクティブが必要です。
+</Callout>
+
+<Tabs labels={["Preview", "Code"]}>
+  <div>
+    <div style="margin: 1.5rem 0; padding: 2rem; border: 1px solid var(--theme-border); border-radius: 8px; display: inline-block;">
+      <ThemeToggle client:load />
+    </div>
+  </div>
+  <div>
+    ```html
+    <ThemeToggle client:load />
+    ```
+  </div>
+</Tabs>
 
 <Callout type="tip" title="Tip">
   通常、このコンポーネントは記事内ではなく、`Layout.astro` の中で `Header` コンポーネントの `slot="actions"` に配置して、サイト全体で共通利用します。

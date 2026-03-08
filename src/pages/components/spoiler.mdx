@@ -5,6 +5,9 @@ title: Spoiler (折りたたみ)
 
 import Spoiler from '@/components/Spoiler.svelte';
 import Button from '@/components/Button.astro';
+import Tabs from '@/components/Tabs.astro';
+
+import Callout from '@/components/Callout.astro';
 
 # Spoiler
 
@@ -12,8 +15,23 @@ import Button from '@/components/Button.astro';
 
 ## Usage
 
-<Spoiler title="解答を見る" client:visible>
-    <span>見えない要素の中に、さらにコードや画像を配置できます。</span>
-</Spoiler>
+<Callout type="note" title="Note">
+  このコンポーネントはSvelteで構築されています。MDX内などでインタラクティブに動作させるには `client:load` などのクライアントディレクティブが必要です。
+</Callout>
+
+<Tabs labels={["Preview", "Code"]}>
+  <div style="margin-bottom: 1.5rem;">
+    <Spoiler title="解答を見る" client:visible>
+        <span>見えない要素の中に、さらにコードや画像を配置できます。</span>
+    </Spoiler>
+  </div>
+  <div>
+    ```html
+    <Spoiler title="解答を見る" client:visible>
+        <span>見えない要素の中に、さらにコードや画像を配置できます。</span>
+    </Spoiler>
+    ```
+  </div>
+</Tabs>
 
 <Button href="/" type="default">← トップへ戻る</Button>

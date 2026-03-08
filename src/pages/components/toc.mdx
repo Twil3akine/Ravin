@@ -5,6 +5,9 @@ title: TOC (目次)
 
 import TOC from '@/components/TOC.svelte';
 import Button from '@/components/Button.astro';
+import Tabs from '@/components/Tabs.astro';
+
+import Callout from '@/components/Callout.astro';
 
 # TOC (Table of Contents)
 
@@ -12,24 +15,44 @@ import Button from '@/components/Button.astro';
 
 ## Usage
 
+<Callout type="note" title="Note">
+  このコンポーネントはSvelteで構築されています。MDX内などでインタラクティブに動作させるには `client:load` などのクライアントディレクティブが必要です。
+</Callout>
+
 Astroの Markdown / MDX ページで取得できる `headings` データを渡し、`client:idle` などのディレクティブを付与して使用します。以下はダミーデータを渡した表示例です。
 
-<div
-  style={{
-    margin: '2rem 0',
-    padding: '1rem',
-    border: '1px solid var(--theme-border)',
-    borderRadius: '8px',
-  }}
->
-  <TOC
-    headings={[
-      { depth: 2, slug: 'usage', text: 'Usage' },
-      { depth: 3, slug: 'props', text: 'Props' },
-      { depth: 2, slug: 'example', text: 'Example' },
-    ]}
-    client:idle
-  />
-</div>
+<Tabs labels={["Preview", "Code"]}>
+  <div>
+    <div
+      style={{
+        margin: '2rem 0',
+        padding: '1rem',
+        border: '1px solid var(--theme-border)',
+        borderRadius: '8px',
+      }}
+    >
+      <TOC
+        headings={[
+          { depth: 2, slug: 'usage', text: 'Usage' },
+          { depth: 3, slug: 'props', text: 'Props' },
+          { depth: 2, slug: 'example', text: 'Example' },
+        ]}
+        client:idle
+      />
+    </div>
+  </div>
+  <div>
+    ```html
+    <TOC
+      headings={[
+        { depth: 2, slug: 'usage', text: 'Usage' },
+        { depth: 3, slug: 'props', text: 'Props' },
+        { depth: 2, slug: 'example', text: 'Example' },
+      ]}
+      client:idle
+    />
+    ```
+  </div>
+</Tabs>
 
 <Button href="/" type="default">← トップへ戻る</Button>
