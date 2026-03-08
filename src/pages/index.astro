@@ -26,9 +26,9 @@ import Grid from "@/components/Grid.astro";
     ブログ、ドキュメント、ポートフォリオ。Ravinは必要なパーツを組み合わせるだけで、どんな用途にも柔軟に対応します。
     </p>
 
-    <Grid>
-    <NavCard href="/demos/blog" title="ブログ構成のデモ" />
-    <NavCard href="/demos/docs" title="ドキュメント構成のデモ" />
+    <Grid columns={2}>
+      <NavCard href="/demos/blog" title="ブログ構成のデモ" />
+      <NavCard href="/demos/docs" title="ドキュメント構成のデモ" />
     </Grid>
   </section>
 </Layout>
