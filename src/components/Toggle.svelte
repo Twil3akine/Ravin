@@ -1,7 +1,16 @@
 <script lang="ts">
+  import { onMount, tick } from 'svelte';
   export let checked = false;
   export let disabled = false;
   export let ariaLabel = "Toggle";
+
+  let mounted = false;
+  onMount(() => {
+    // 初回レンダリングとThemeToggleのステート同期待ちのため、確実にペイントが終わるまでtransitionを遅延
+    setTimeout(() => {
+      mounted = true;
+    }, 100);
+  });
 </script>
 
 <button
@@ -12,9 +21,10 @@
   {disabled}
   class="toggle-btn"
   class:checked
+  class:mounted
   on:click={() => (checked = !checked)}
 >
-  <span class="toggle-thumb" />
+  <span class="toggle-thumb"></span>
 </button>
 
 <style>
@@ -26,8 +36,12 @@
     background-color: var(--theme-border);
     border: none;
     cursor: pointer;
-    transition: background-color 0.2s ease;
     padding: 0;
+  }
+
+  /* マウント後にのみアニメーションを有効化する */
+  .toggle-btn.mounted {
+    transition: background-color 0.2s ease;
   }
 
   .toggle-btn:focus-visible {
@@ -52,6 +66,9 @@
     height: calc(1.25rem - 4px);
     background-color: var(--theme-bg);
     border-radius: 50%;
+  }
+
+  .toggle-btn.mounted .toggle-thumb {
     transition: transform 0.2s ease;
   }
 
