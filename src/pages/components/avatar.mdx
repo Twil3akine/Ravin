@@ -5,6 +5,7 @@ title: Avatar (アバター)
 
 import Avatar from '@/components/Avatar.astro';
 import Button from '@/components/Button.astro';
+import Tabs from '@/components/Tabs.astro';
 
 # Avatar
 
@@ -12,19 +13,36 @@ import Button from '@/components/Button.astro';
 
 ## Usage
 
-### 画像を使用する場合
-<div style={{ display: 'flex', gap: '1rem', alignItems: 'center' }}>
-  <Avatar src="https://avatars.githubusercontent.com/u/9919?v=4" alt="GitHub" size="lg" />
-  <Avatar src="https://avatars.githubusercontent.com/u/9919?v=4" alt="GitHub" size="md" />
-  <Avatar src="https://avatars.githubusercontent.com/u/9919?v=4" alt="GitHub" size="sm" />
-</div>
+<Tabs labels={["Preview", "Code"]}>
+  <div>
+    <h3 style="margin-top: 0">画像を使用する場合</h3>
+    <div style={{ display: 'flex', gap: '1rem', alignItems: 'center', marginBottom: '1.5rem' }}>
+      <Avatar src="https://avatars.githubusercontent.com/u/9919?v=4" alt="GitHub" size="lg" />
+      <Avatar src="https://avatars.githubusercontent.com/u/9919?v=4" alt="GitHub" size="md" />
+      <Avatar src="https://avatars.githubusercontent.com/u/9919?v=4" alt="GitHub" size="sm" />
+    </div>
 
-### イニシャルを使用する場合（フォールバック）
-<div style={{ display: 'flex', gap: '1rem', alignItems: 'center', marginTop: '1rem' }}>
-  <Avatar initials="Ravin" size="lg" />
-  <Avatar initials="Ravin" size="md" />
-  <Avatar initials="Ravin" size="sm" />
-</div>
+    <h3>イニシャルを使用する場合（フォールバック）</h3>
+    <div style={{ display: 'flex', gap: '1rem', alignItems: 'center', marginTop: '1rem', marginBottom: '1.5rem' }}>
+      <Avatar initials="Ravin" size="lg" />
+      <Avatar initials="Ravin" size="md" />
+      <Avatar initials="Ravin" size="sm" />
+    </div>
+  </div>
+  <div>
+    ```html
+    <!-- 画像を使用する場合 -->
+    <Avatar src="https://avatars.githubusercontent.com/u/9919?v=4" alt="GitHub" size="lg" />
+    <Avatar src="..." alt="..." size="md" />
+    <Avatar src="..." alt="..." size="sm" />
+
+    <!-- イニシャルを使用する場合（フォールバック） -->
+    <Avatar initials="Ravin" size="lg" />
+    <Avatar initials="Ravin" size="md" />
+    <Avatar initials="Ravin" size="sm" />
+    ```
+  </div>
+</Tabs>
 
 <br />
 <br />

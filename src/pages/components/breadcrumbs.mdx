@@ -5,6 +5,7 @@ title: Breadcrumbs (パンくずリスト)
 
 import Breadcrumbs from '@/components/Breadcrumbs.astro';
 import Button from '@/components/Button.astro';
+import Tabs from '@/components/Tabs.astro';
 
 # Breadcrumbs
 
@@ -12,19 +13,42 @@ import Button from '@/components/Button.astro';
 
 ## Usage
 
-### 自動生成
-プロパティを渡さない場合、現在のURLから自動的にパンくずリストが生成されます。
-<Breadcrumbs />
+<Tabs labels={["Preview", "Code"]}>
+  <div>
+    <h3 style="margin-top: 0">自動生成</h3>
+    <p>プロパティを渡さない場合、現在のURLから自動的にパンくずリストが生成されます。</p>
+    <Breadcrumbs />
 
-### 手動指定
-任意の階層をプロパティとして渡すことも可能です。
-<Breadcrumbs
-  crumbs={[
-    { label: "Home", href: "/" },
-    { label: "Components", href: "/components" },
-    { label: "Breadcrumbs" },
-  ]}
-/>
+    <h3 style="margin-top: 1.5rem">手動指定</h3>
+    <p>任意の階層をプロパティとして渡すことも可能です。</p>
+    <div style="margin-bottom: 1.5rem;">
+      <Breadcrumbs
+        crumbs={[
+          { label: "Home", href: "/" },
+          { label: "Components", href: "/components" },
+          { label: "Breadcrumbs" },
+        ]}
+      />
+    </div>
+  </div>
+  <div>
+    ```html
+    <h3>自動生成</h3>
+    <p>プロパティを渡さない場合、現在のURLから自動的にパンくずリストが生成されます。</p>
+    <Breadcrumbs />
+
+    <h3>手動指定</h3>
+    <p>任意の階層をプロパティとして渡すことも可能です。</p>
+    <Breadcrumbs
+      crumbs={[
+        { label: "Home", href: "/" },
+        { label: "Components", href: "/components" },
+        { label: "Breadcrumbs" },
+      ]}
+    />
+    ```
+  </div>
+</Tabs>
 
 <br />
 <br />

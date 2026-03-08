@@ -5,6 +5,7 @@ title: Tag (タグ)
 
 import Tag from '@/components/Tag.astro';
 import Button from '@/components/Button.astro';
+import Tabs from '@/components/Tabs.astro';
 
 # Tag
 
@@ -12,17 +13,36 @@ import Button from '@/components/Button.astro';
 
 ## Usage
 
-### リンク付きタグ
-<div style={{ display: 'flex', gap: '0.5rem' }}>
-  <Tag href="/tags/astro">Astro</Tag>
-  <Tag href="/tags/design">Design</Tag>
-</div>
+<Tabs labels={["Preview", "Code"]}>
+  <div>
+    <h3 style="margin-top: 0">リンク付きタグ</h3>
+    <div style={{ display: 'flex', gap: '0.5rem', marginBottom: '1.5rem' }}>
+      <Tag href="/tags/astro">Astro</Tag>
+      <Tag href="/tags/design">Design</Tag>
+    </div>
 
-### リンクなしタグ（表示のみ）
-<div style={{ display: 'flex', gap: '0.5rem', marginTop: '1rem' }}>
-  <Tag>Update</Tag>
-  <Tag>News</Tag>
-</div>
+    <h3>リンクなしタグ（表示のみ）</h3>
+    <div style={{ display: 'flex', gap: '0.5rem', marginTop: '1rem',  marginBottom: '1.5rem' }}>
+      <Tag>Update</Tag>
+      <Tag>News</Tag>
+    </div>
+  </div>
+  <div>
+    ```html
+    <!-- リンク付きタグ -->
+    <div style="display: flex; gap: 0.5rem;">
+      <Tag href="/tags/astro">Astro</Tag>
+      <Tag href="/tags/design">Design</Tag>
+    </div>
+
+    <!-- リンクなしタグ（表示のみ） -->
+    <div style="display: flex; gap: 0.5rem; margin-top: 1rem;">
+      <Tag>Update</Tag>
+      <Tag>News</Tag>
+    </div>
+    ```
+  </div>
+</Tabs>
 
 <br />
 <br />

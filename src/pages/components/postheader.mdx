@@ -7,6 +7,7 @@ import PostHeader from '@/components/PostHeader.astro';
 import Button from '@/components/Button.astro';
 import Grid from '@/components/Grid.astro';
 import NavCard from '@/components/NavCard.astro';
+import Tabs from '@/components/Tabs.astro';
 
 # PostHeader
 
@@ -23,11 +24,24 @@ import NavCard from '@/components/NavCard.astro';
 
 ## Usage
 
-<PostHeader
-  title="Astro Theme Ravinの使い方"
-  date={new Date("2026-03-05")}
-  tags={["Astro", "Design", "UI/UX"]}
-/>
+<Tabs labels={["Preview", "Code"]}>
+  <div style="margin-bottom: 1.5rem;">
+    <PostHeader
+      title="Astro Theme Ravinの使い方"
+      date={new Date("2026-03-05")}
+      tags={["Astro", "Design", "UI/UX"]}
+    />
+  </div>
+  <div>
+    ```html
+    <PostHeader
+      title="Astro Theme Ravinの使い方"
+      date={new Date("2026-03-05")}
+      tags={["Astro", "Design", "UI/UX"]}
+    />
+    ```
+  </div>
+</Tabs>
 
 <br />
 <br />

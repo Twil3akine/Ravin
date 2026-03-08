@@ -5,6 +5,7 @@ title: Table (テーブル)
 
 import Table from '@/components/Table.astro';
 import Button from '@/components/Button.astro';
+import Tabs from '@/components/Tabs.astro';
 
 # Table
 
@@ -13,12 +14,27 @@ import Button from '@/components/Button.astro';
 
 ## Usage
 
-<Table>
-| プロパティ | 型 | 説明 |
-| :--- | :--- | :--- |
-| `title` | `string` | コンポーネントのタイトルを指定します。 |
-| `href` | `string` | リンク先のURLを指定します。 |
-| `disabled` | `boolean` | 無効状態にするかどうかを指定します。 |
-</Table>
+<Tabs labels={["Preview", "Code"]}>
+  <div style="margin-bottom: 1.5rem;">
+    <Table>
+    | プロパティ | 型 | 説明 |
+    | :--- | :--- | :--- |
+    | `title` | `string` | コンポーネントのタイトルを指定します。 |
+    | `href` | `string` | リンク先のURLを指定します。 |
+    | `disabled` | `boolean` | 無効状態にするかどうかを指定します。 |
+    </Table>
+  </div>
+  <div>
+    ```mdx
+    <Table>
+    | プロパティ | 型 | 説明 |
+    | :--- | :--- | :--- |
+    | `title` | `string` | コンポーネントのタイトルを指定します。 |
+    | `href` | `string` | リンク先のURLを指定します。 |
+    | `disabled` | `boolean` | 無効状態にするかどうかを指定します。 |
+    </Table>
+    ```
+  </div>
+</Tabs>
 
 <Button href="/" type="default">← トップへ戻る</Button>
