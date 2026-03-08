@@ -9,16 +9,16 @@ const allBlogPosts = await getCollection('blog');
 const sortedPosts = allBlogPosts.sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf());
 ---
 
-<Layout title="ブログ記事一覧 (Demo)">
+<Layout title="ブログ記事一覧">
   <Breadcrumbs />
 
   <PostHeader
-    title="ブログ記事一覧 (Demo)"
-    tags={["Demo", "Blog"]}
+    title="ブログ記事一覧"
+    tags={["Blog"]}
   />
 
   <p style="color: var(--theme-text-muted); margin-bottom: 3rem;">
-    これは <code>src/content/blog/</code> に配置されたMarkdown/MDXファイルを自動で取得してリスト表示するデモです。AstroのContent Collections機能を活用しています。
+    これは <code>src/content/blog/</code> に配置されたMarkdown/MDXファイルを自動で取得してリスト表示するページです。AstroのContent Collections機能を活用しています。
   </p>
 
   <ul style="list-style: none; padding: 0; display: flex; flex-direction: column; gap: 1rem;">
