@@ -1,0 +1,42 @@
+---
+import { getCollection } from 'astro:content';
+import Layout from '@/layouts/Layout.astro';
+import PostHeader from '@/components/PostHeader.astro';
+import Breadcrumbs from '@/components/Breadcrumbs.astro';
+
+export async function getStaticPaths() {
+  const blogEntries = await getCollection('blog');
+  return blogEntries.map(entry => ({
+    params: { slug: entry.slug },
+    props: { entry },
+  }));
+}
+
+const { entry } = Astro.props;
+const { Content } = await entry.render();
+---
+
+<Layout title={entry.data.title}>
+  <Breadcrumbs />
+  <PostHeader 
+    title={entry.data.title} 
+    date={entry.data.date} 
+    tags={entry.data.tags} 
+  />
+  <div class="ravin-content">
+    <!-- レンダリングされたMarkdown/MDXのコンテンツがここに展開されます -->
+    <Content />
+  </div>
+</Layout>
+
+<style is:global>
+  /* 記事内の基本的なスタイル保証 (必要に応じて調整) */
+  .ravin-content h2 {
+    margin-top: 2.5rem;
+    margin-bottom: 1rem;
+  }
+  .ravin-content p {
+    margin-bottom: 1.25rem;
+    line-height: 1.7;
+  }
+</style>
