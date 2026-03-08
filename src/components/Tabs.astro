@@ -98,4 +98,9 @@ const { labels } = Astro.props;
   .tab-panels > div > .code-block-wrapper {
     margin: 0;
   }
+
+  /* hidden属性が付与されたパネルを確実に隠す */
+  .tab-panels > [hidden] {
+    display: none !important;
+  }
 </style>
