@@ -4,6 +4,7 @@ import Button from "@/components/Button.astro";
 import NavCard from "@/components/NavCard.astro";
 import Label from "@/components/Label.astro";
 import Grid from "@/components/Grid.astro";
+import FeatureCard from "@/components/FeatureCard.astro";
 ---
 
 <Layout 
@@ -26,12 +27,58 @@ import Grid from "@/components/Grid.astro";
   <section class="features">
     <h2>Use Cases</h2>
     <p style="color: var(--theme-text-muted); margin-bottom: 2rem;">
-    ブログ、ドキュメント、ポートフォリオ。Ravinは必要なパーツを組み合わせるだけで、どんな用途にも柔軟に対応します。
+      ブログ、ドキュメント、ポートフォリオ。Ravinは必要なパーツを組み合わせるだけで、どんな用途にも柔軟に対応します。
     </p>
 
     <Grid columns={2}>
       <NavCard href="/blog" title="ブログ構成のデモ" />
       <NavCard href="/docs" title="ドキュメント構成のデモ" />
+    </Grid>
+  </section>
+
+  <section class="highlights">
+    <h2>Why Ravin?</h2>
+    <p style="color: var(--theme-text-muted); margin-bottom: 2rem;">
+      開発体験と読者の体験、その両方を大切にするための機能を備えています。
+    </p>
+
+    <Grid columns={2}>
+      <FeatureCard 
+        title="Astro × Svelte" 
+        icon={`<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m12 14 4-4"/><path d="M3.34 19a10 10 0 1 1 17.32 0"/></svg>`}
+      >
+        高速な静的サイト生成と、Svelteによる滑らかで軽量なインタラクティブUIを融合。
+      </FeatureCard>
+      <FeatureCard 
+        title="Rich MDX Components"
+        icon={`<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="14 2 18 6 7 17 3 17 3 13 14 2"></polygon><line x1="3" y1="22" x2="21" y2="22"></line></svg>`}
+      >
+        タブ、コールアウト、スポイラーなど、ドキュメント執筆を強力にサポートするコンポーネント群を標準搭載。
+      </FeatureCard>
+      <FeatureCard 
+        title="Dark Mode Ready"
+        icon={`<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"></path></svg>`}
+      >
+        システム設定との同期、手動トグルに対応した美しいダークモードをCSS Variablesベースで実装。
+      </FeatureCard>
+      <FeatureCard 
+        title="SEO Optimized"
+        icon={`<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20"/><path d="M2 12h20"/></svg>`}
+      >
+        動的なOGP画像、Canonical URL、自動生成Sitemapなど、最新のSEOベストプラクティスに準拠。
+      </FeatureCard>
+      <FeatureCard 
+        title="Content Collections"
+        icon={`<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5v-15A2.5 2.5 0 0 1 6.5 2H20v20H6.5a2.5 2.5 0 0 1 0-5H20"/></svg>`}
+      >
+        Astroの強力な型安全スキーマによって、Markdown記事のメタデータを厳格かつ安全に管理。
+      </FeatureCard>
+      <FeatureCard 
+        title="Minimal & Clean"
+        icon={`<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect><line x1="3" y1="9" x2="21" y2="9"></line><line x1="9" y1="21" x2="9" y2="9"></line></svg>`}
+      >
+        読者の集中を妨げない、計算されたタイポグラフィと余白設計によるモノトーンデザイン。
+      </FeatureCard>
     </Grid>
   </section>
 </Layout>
@@ -65,7 +112,10 @@ import Grid from "@/components/Grid.astro";
     justify-content: center;
     gap: 1rem;
   }
-  .features h2 {
+  .features, .highlights {
+    margin-bottom: 5rem;
+  }
+  .features h2, .highlights h2 {
     font-size: 1.5rem;
     margin-bottom: 0.5rem;
   }

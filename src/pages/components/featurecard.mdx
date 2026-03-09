@@ -1,0 +1,50 @@
+---
+layout: '@/layouts/Layout.astro'
+title: FeatureCard (特徴カード)
+---
+
+import FeatureCard from '@/components/FeatureCard.astro';
+import Button from '@/components/Button.astro';
+import Tabs from '@/components/Tabs.astro';
+
+# FeatureCard
+
+製品の特徴やサービスのメリットを、アイコンとタイトル付きで簡潔に紹介するためのカードコンポーネントです。トップページ（ランディングページ）などで並べて配置する際によく使われます。
+
+## Usage
+
+<Tabs labels={["Preview", "Code"]}>
+  <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1rem; margin-bottom: 1.5rem;">
+    <FeatureCard 
+      title="Astro × Svelte" 
+      icon={`<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m12 14 4-4"/><path d="M3.34 19a10 10 0 1 1 17.32 0"/></svg>`}
+    >
+      高速な静的生成と滑らかなインタラクション。
+    </FeatureCard>
+    <FeatureCard 
+      title="Minimal Design"
+    >
+      アイコンを省略し、タイトルと文章だけで構成することも可能です。
+    </FeatureCard>
+  </div>
+  <div>
+    ```html
+    <FeatureCard 
+      title="Astro × Svelte" 
+      icon={`<svg>...</svg>`}
+    >
+      高速な静的生成と滑らかなインタラクション。
+    </FeatureCard>
+
+    <FeatureCard 
+      title="Minimal Design"
+    >
+      アイコンを省略し、タイトルと文章だけで構成することも可能です。
+    </FeatureCard>
+    ```
+  </div>
+</Tabs>
+
+<br />
+
+<Button href="/components" type="default">← コンポーネント一覧へ戻る</Button>
