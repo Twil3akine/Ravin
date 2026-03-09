@@ -5,6 +5,7 @@ title: LinkCard (リンクカード)
 
 import LinkCard from '@/components/LinkCard.astro';
 import Button from '@/components/Button.astro';
+import Tabs from '@/components/Tabs.astro';
 
 # LinkCard
 
@@ -14,15 +15,31 @@ import Button from '@/components/Button.astro';
 
 MDX内で `<LinkCard href="..." />` のように記述するだけで、美しいカードが生成されます。
 
-### Astro 公式サイトの例
+<Tabs labels={["Preview", "Code"]}>
+  <div style="display: flex; flex-direction: column; gap: 1.5rem; margin-bottom: 1.5rem;">
+    <div>
+      <h3 style="margin-top: 0">Astro 公式サイトの例</h3>
+      <LinkCard href="https://astro.build/" />
+    </div>
+    <div>
+      <h3 style="margin-top: 0">GitHub の例</h3>
+      <LinkCard href="https://github.com/" />
+    </div>
+  </div>
+  <div>
+    ```mdx
+    ### Astro 公式サイトの例
 
-<LinkCard href="https://astro.build/" />
+    <LinkCard href="https://astro.build/" />
 
-### GitHub の例
+    ### GitHub の例
 
-<LinkCard href="https://github.com/" />
+    <LinkCard href="https://github.com/" />
+    ```
+  </div>
+</Tabs>
 
 <br />
 <br />
 
-<Button href="/" type="default">← トップへ戻る</Button>
+<Button href="/components" type="default">← コンポーネント一覧へ戻る</Button>

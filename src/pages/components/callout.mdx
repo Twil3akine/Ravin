@@ -5,6 +5,7 @@ title: Callout (コールアウト)
 
 import Callout from '@/components/Callout.astro';
 import Button from '@/components/Button.astro';
+import Tabs from '@/components/Tabs.astro';
 
 # Callout
 
@@ -12,17 +13,23 @@ import Button from '@/components/Button.astro';
 
 ## Usage
 
-<Callout type="note" title="Note">
-  標準的な補足情報です。
-</Callout>
-<Callout type="tip" title="Tip">
-  役立つヒントやベストプラクティスです。
-</Callout>
-<Callout type="warning" title="Warning">
-  注意が必要な情報です。
-</Callout>
-<Callout type="danger" title="Danger">
-    非推奨や破壊的な変更を示す警告です。
-</Callout>
+<Tabs labels={["Preview", "Code"]}>
+  <div style="display: flex; flex-direction: column; gap: 1rem; margin-bottom: 1.5rem;">
+    <Callout type="note" title="Note">標準的な補足情報です。</Callout>
+    <Callout type="tip" title="Tip">役立つヒントやベストプラクティスです。</Callout>
+    <Callout type="warning" title="Warning">注意が必要な情報です。</Callout>
+    <Callout type="danger" title="Danger">非推奨や破壊的な変更を示す警告です。</Callout>
+  </div>
+  <div>
+    ```html
+    <Callout type="note" title="Note">標準的な補足情報です。</Callout>
+    <Callout type="tip" title="Tip">役立つヒントやベストプラクティスです。</Callout>
+    <Callout type="warning" title="Warning">注意が必要な情報です。</Callout>
+    <Callout type="danger" title="Danger">非推奨や破壊的な変更を示す警告です。</Callout>
+    ```
+  </div>
+</Tabs>
 
-<Button href="/" type="default">← トップへ戻る</Button>
+<br />
+
+<Button href="/components" type="default">← コンポーネント一覧へ戻る</Button>

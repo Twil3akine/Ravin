@@ -5,6 +5,7 @@ title: CodeBlock (コードブロック)
 
 import CodeBlock from '@/components/CodeBlock.astro';
 import Button from '@/components/Button.astro';
+import Tabs from '@/components/Tabs.astro';
 
 # CodeBlock
 
@@ -12,14 +13,31 @@ import Button from '@/components/Button.astro';
 
 ## Usage
 
-<CodeBlock title="astro.config.mjs">
-```javascript
-import { defineConfig } from 'astro/config';
+<Tabs labels={["Preview", "Code"]}>
+  <div style="margin-bottom: 1.5rem;">
+    <CodeBlock title="astro.config.mjs">
+    ```javascript
+    import { defineConfig } from 'astro/config';
 
-export default defineConfig({
-  site: '[https://example.com](https://example.com)',
-});
-```
-</CodeBlock>
+    export default defineConfig({
+      site: 'https://example.com',
+    });
+    ```
+    </CodeBlock>
+  </div>
+  <div>
+    ````mdx
+    <CodeBlock title="astro.config.mjs">
+    ```javascript
+    import { defineConfig } from 'astro/config';
 
-<Button href="/" type="default">← トップへ戻る</Button>
+    export default defineConfig({
+      site: 'https://example.com',
+    });
+    ```
+    </CodeBlock>
+    ````
+  </div>
+</Tabs>
+
+<Button href="/components" type="default">← コンポーネント一覧へ戻る</Button>

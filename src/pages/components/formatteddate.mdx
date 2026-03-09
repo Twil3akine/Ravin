@@ -5,6 +5,7 @@ title: FormattedDate (日付フォーマット)
 
 import FormattedDate from '@/components/FormattedDate.astro';
 import Button from '@/components/Button.astro';
+import Tabs from '@/components/Tabs.astro';
 
 # FormattedDate
 
@@ -12,9 +13,18 @@ import Button from '@/components/Button.astro';
 
 ## Usage
 
-<FormattedDate date={new Date()} />
+<Tabs labels={["Preview", "Code"]}>
+  <div style="margin-bottom: 1.5rem;">
+    <FormattedDate date={new Date()} />
+  </div>
+  <div>
+    ```html
+    <FormattedDate date={new Date()} />
+    ```
+  </div>
+</Tabs>
 
 <br />
 <br />
 
-<Button href="/" type="default">← トップへ戻る</Button>
+<Button href="/components" type="default">← コンポーネント一覧へ戻る</Button>

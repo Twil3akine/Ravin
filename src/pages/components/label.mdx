@@ -5,6 +5,7 @@ title: Label (ラベル)
 
 import Label from '@/components/Label.astro';
 import Button from '@/components/Button.astro';
+import Tabs from '@/components/Tabs.astro';
 
 # Label
 
@@ -12,7 +13,17 @@ import Button from '@/components/Button.astro';
 
 ## Usage
 
-これは <Label type="info">Info</Label> ラベルの例です。
-他には <Label type="success">Success</Label>、<Label type="warning">Warning</Label>、<Label type="danger">Danger</Label>、<Label type="default">Default</Label> があります。
+<Tabs labels={["Preview", "Code"]}>
+  <div style="display: flex; gap: 0.5rem; flex-wrap: wrap; margin-bottom: 1.5rem;">
+    <span>これは <Label type="info">Info</Label> ラベルの例です。</span>
+    <span>他には <Label type="success">Success</Label>、<Label type="warning">Warning</Label>、<Label type="danger">Danger</Label>、<Label type="default">Default</Label> があります。</span>
+  </div>
+  <div>
+    ```html
+    これは <Label type="info">Info</Label> ラベルの例です。
+    他には <Label type="success">Success</Label>、<Label type="warning">Warning</Label>、<Label type="danger">Danger</Label>、<Label type="default">Default</Label> があります。
+    ```
+  </div>
+</Tabs>
 
-<Button href="/" type="default">← トップへ戻る</Button>
+<Button href="/components" type="default">← コンポーネント一覧へ戻る</Button>

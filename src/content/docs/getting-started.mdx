@@ -1,0 +1,76 @@
+---
+title: "導入ガイド"
+description: "Ravinテーマのインストールから初期セットアップまでの手順を解説します。"
+---
+
+import Callout from '@/components/Callout.astro';
+import Steps from '@/components/Steps.astro';
+import Tabs from '@/components/Tabs.astro';
+import CodeBlock from '@/components/CodeBlock.astro';
+import Table from '@/components/Table.astro';
+import Label from '@/components/Label.astro';
+
+# Ravin Setup Guide <Label type="info">v0.1</Label>
+
+このページは `src/content/docs/getting-started.mdx` から生成されています。ドキュメント用途に特化した構成のデモです。
+
+<Callout type="warning" title="注意事項">
+  現在提供しているバージョンはベータ版です。ディレクトリ構造やAPIが予告なく変更される可能性があります。
+</Callout>
+
+## 1. パッケージのインストール
+
+お使いのパッケージマネージャーに合わせて、以下のコマンドを実行してください。RavinはAstroプロジェクト上で動作します。
+
+<Tabs labels={['npm', 'pnpm', 'yarn']}>
+  <div>
+    <CodeBlock>
+    ```bash
+    npm install ravin
+    ```
+    </CodeBlock>
+  </div>
+  <div>
+    <CodeBlock>
+    ```bash
+    pnpm add ravin
+    ```
+    </CodeBlock>
+  </div>
+  <div>
+    <CodeBlock>
+    ```bash
+    yarn add ravin
+    ```
+    </CodeBlock>
+  </div>
+</Tabs>
+
+## 2. 初期セットアップの手順
+
+<Steps>
+1. **Astroプロジェクトの初期化**
+   
+   まずはベースとなるAstroのプロジェクトを作成します。
+2. **インテグレーションの追加**
+   
+   `astro.config.mjs` を開き、インストールしたRavinを追加します。
+3. **開発サーバーの起動**
+   
+   `npm run dev` などでローカル環境を立ち上げ、Ravinのコンポーネントが反映されているか確認します。
+</Steps>
+
+## 3. 設定プロパティ一覧
+
+ドキュメント内で設定値やAPIリファレンスを記述する際は、以下のように `Table` コンポーネントを使用すると綺麗に整理できます。
+
+<Table>
+| プロパティ名 | 型 | 必須 | 説明 |
+| :--- | :--- | :--- | :--- |
+| `theme` | `'light' \| 'dark'` | △ | 初期表示のテーマカラー |
+| `siteUrl` | `string` | 〇 | OGPやSitemap生成のための基本URL |
+| `lang` | `string` | △ | `<html>`タグに出力される言語設定 |
+</Table>
+
+以上で基本的なセットアップは完了です。必要に応じて他のコンポーネントもご確認ください。
+

@@ -5,6 +5,7 @@ title: Link (リンク)
 
 import Link from '@/components/Link.astro';
 import Button from '@/components/Button.astro';
+import Tabs from '@/components/Tabs.astro';
 
 # Link
 
@@ -12,13 +13,24 @@ import Button from '@/components/Button.astro';
 
 ## Usage
 
-これは <Link href="#">通常の内部リンク</Link> の例です。
-
-外部サイトへ遷移する場合は、`external` プロパティを付与することで別タブで開き、アイコンが自動で付きます。
-
-<Link href="https://astro.build" external={true}>Astro 公式サイト</Link>
+<Tabs labels={["Preview", "Code"]}>
+  <div style="display: flex; flex-direction: column; gap: 1rem; margin-bottom: 1.5rem;">
+    <p>これは <Link href="#">通常の内部リンク</Link> の例です。</p>
+    <p>外部サイトへ遷移する場合は、<code>external</code> プロパティを付与することで別タブで開き、アイコンが自動で付きます。</p>
+    <p><Link href="https://astro.build" external={true}>Astro 公式サイト</Link></p>
+  </div>
+  <div>
+    ```html
+    これは <Link href="#">通常の内部リンク</Link> の例です。
+    
+    外部サイトへ遷移する場合は、`external` プロパティを付与することで別タブで開き、アイコンが自動で付きます。
+    
+    <Link href="https://astro.build" external={true}>Astro 公式サイト</Link>
+    ```
+  </div>
+</Tabs>
 
 <br />
 <br />
 
-<Button href="/" type="default">← トップへ戻る</Button>
+<Button href="/components" type="default">← コンポーネント一覧へ戻る</Button>

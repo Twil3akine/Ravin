@@ -1,0 +1,49 @@
+---
+title: "Astro × Svelte: 静的と動的の完璧な融合"
+date: 2026-03-10
+tags: ["Astro", "Svelte", "Architecture"]
+description: "Astro Islandsアーキテクチャを活用し、最小限のJavaScriptでリッチなインタラクションを実現する手法について。"
+---
+
+import Callout from '@/components/Callout.astro';
+import Toggle from '@/components/Toggle.svelte';
+import LinkCard from '@/components/LinkCard.astro';
+
+現代のWeb開発において、パフォーマンスとリッチなUIはしばしばトレードオフの関係にあります。しかし、**Astro** と **Svelte** を組み合わせることで、その両方を妥協することなく実現できます。
+
+## Astro Islands アーキテクチャ
+
+AstroはデフォルトでクライアントサイドのJavaScriptを出力しない、**Zero-JS by Default** のアプローチを採用しています。これにより、信じられないほど高速に読み込まれる静的サイトが生成されます。
+
+しかし、ナビゲーションメニューの開閉や、ダークモードの切り替えなど、インタラクティブな要素にはJavaScriptが必要です。ここで活躍するのが **Astro Islands**（アイランドアーキテクチャ）です。
+
+<Callout type="note" title="Astro Islandsとは">
+  ページ全体を静的なHTMLとしてレンダリングしつつ、インタラクティブ性が必要な特定のコンポーネント（島）だけをクライアントサイドでハイドレーション（JavaScriptによる有効化）する仕組みです。
+</Callout>
+
+## RavinでのSvelteの活用
+
+Ravinコンポーネントライブラリでは、動きのない静的な要素は拡張子 `.astro` で作られ、アニメーションや状態管理が絡む要素は拡張子 `.svelte` で作られています。
+
+SvelteはVirtual DOMを持たず、コンパイル時に小さくて効率的なバニラJSに変換されるため、Astroの思想と非常に相性が良いフレームワークです。
+
+### 動作デモ
+
+以下は、Svelteで記述された `Toggle` コンポーネントを記事の中に埋め込んだ例です。この部分はMDXの記述内で `client:visible` ディレクティブにより読み込まれ、画面に表示された瞬間にインタラクティブになります。
+
+<div style="margin: 2rem 0; padding: 2rem; border: 1px solid var(--theme-border); border-radius: 8px; display: flex; align-items: center; justify-content: space-between;">
+  <span style="font-weight: 500;">通知を有効にする</span>
+  <Toggle client:visible />
+</div>
+
+<div style="margin: 2rem 0; padding: 2rem; border: 1px solid var(--theme-border); border-radius: 8px; display: flex; align-items: center; justify-content: space-between;">
+  <span style="font-weight: 500;">自動保存をオンにする</span>
+  <Toggle checked={true} client:visible />
+</div>
+
+## まとめ
+
+Astroの静的生成の速さと、軽量かつ強力なSvelteの反応性を組み合わせることで、Ravinは「無駄のないリッチな体験」をユーザーに提供しています。
+
+より詳しいコンポーネントの構造については、コンポーネント一覧ページから直接ソースコードをご確認ください。
+

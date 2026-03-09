@@ -13,71 +13,70 @@ OSごとの手順や、コードとプレビューの切り替えなど、コン
 
 ## Usage
 
-### 1. パッケージマネージャーの切り替え
-ドキュメントで頻出する、インストールコマンドの切り替え例です。
+  ### 1. パッケージマネージャーの切り替え
 
-<Tabs labels={['npm', 'pnpm', 'yarn']}>
-  <div>
-    <CodeBlock>
-    ```bash
-    npm install ravin
-    ```
-    </CodeBlock>
-  </div>
-  <div>
-    <CodeBlock>
-    ```bash
-    pnpm add ravin
-    ```
-    </CodeBlock>
-  </div>
-  <div>
-    <CodeBlock>
-    ```bash
-    yarn add ravin
-    ```
-    </CodeBlock>
-  </div>
-</Tabs>
+  <Tabs labels={['npm', 'pnpm', 'yarn']}>
+    <Fragment>
+      <CodeBlock>
+      ```bash
+      npm install ravin
+      ```
+      </CodeBlock>
+    </Fragment>
+    <Fragment>
+      <CodeBlock>
+      ```bash
+      pnpm add ravin
+      ```
+      </CodeBlock>
+    </Fragment>
+    <Fragment>
+      <CodeBlock>
+      ```bash
+      yarn add ravin
+      ```
+      </CodeBlock>
+    </Fragment>
+  </Tabs>
 
-### 2. OS別の手順の切り替え
-環境によって異なる手順や説明を案内する例です。Markdownのテキストとコンポーネントを混在させることができます。
+  ### 2. OS別の手順の切り替え
 
-<Tabs labels={['macOS / Linux', 'Windows']}>
-  <div>
-    ターミナルを開き、以下のコマンドを実行します。
-    <CodeBlock>
-    ```bash
-    ls -la
-    ```
-    </CodeBlock>
-  </div>
-  <div>
-    PowerShellを開き、以下のコマンドを実行します。
-    <CodeBlock>
-    ```powershell
-    Get-ChildItem -Force
-    ```
-    </CodeBlock>
-  </div>
-</Tabs>
+  <Tabs labels={['macOS / Linux', 'Windows']}>
+    <Fragment>
+      ターミナルを開き、以下のコマンドを実行します。
+      <CodeBlock>
+      ```bash
+      ls -la
+      ```
+      </CodeBlock>
+    </Fragment>
+    <Fragment>
+      PowerShellを開き、以下のコマンドを実行します。
+      <CodeBlock>
+      ```powershell
+      Get-ChildItem -Force
+      ```
+      </CodeBlock>
+    </Fragment>
+  </Tabs>
 
-### 3. プレビューとコードの切り替え
-実際のコンポーネントの見た目と、その実装コードを切り替えて表示する例です。
+  ### 3. ランダムなコンテンツの切り替え
 
-<Tabs labels={['Preview', 'Code']}>
-  <div style="padding: 2rem; border: 1px dashed var(--theme-border); border-radius: 6px; margin-top: 1.5rem;">
-    <Button href="#" type="primary">プレビューボタン</Button>
-  </div>
-  <div>
-    <CodeBlock>
-    ```astro
-    import Button from '@/components/Button.astro';
+  <Tabs labels={['Preview', 'Code']}>
+    <Fragment>
+      <div style="padding: 2rem; border: 1px dashed var(--theme-border); border-radius: 6px; margin-top: 1.5rem;">
+        <Button href="#" type="primary">プレビューボタン</Button>
+      </div>
+    </Fragment>
+    <Fragment>
+      <CodeBlock>
+      ```astro
+      import Button from '@/components/Button.astro';
 
-    <Button href="#" type="primary">プレビューボタン</Button>
-    ```
-    </CodeBlock>
-  </div>
-</Tabs>
+      <Button href="#" type="primary">プレビューボタン</Button>
+      ```
+      </CodeBlock>
+    </Fragment>
+  </Tabs>
 
-<Button href="/" type="default">← トップへ戻る</Button>
+<Button href="/components" type="default">← コンポーネント一覧へ戻る</Button>

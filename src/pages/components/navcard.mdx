@@ -5,6 +5,7 @@ title: NavCard (ナビゲーションカード)
 
 import NavCard from '@/components/NavCard.astro';
 import Button from '@/components/Button.astro';
+import Tabs from '@/components/Tabs.astro';
 
 # NavCard
 
@@ -14,13 +15,26 @@ import Button from '@/components/Button.astro';
 
 基本的には `<ul>` などのリスト要素の中で使用することを想定しています。ホバー時にはボーダーと背景色が変化します。
 
-<ul style="list-style: none; padding: 0; display: flex; flex-direction: column; gap: 0.8rem;">
-  <NavCard href="/components/button" title="Button コンポーネントを見る" />
-  <NavCard href="/components/callout" title="Callout コンポーネントを見る" />
-  <NavCard href="#" title="実装予定のページ" />
-</ul>
+<Tabs labels={["Preview", "Code"]}>
+  <div>
+    <ul style="list-style: none; padding: 0; display: flex; flex-direction: column; gap: 0.8rem; margin-bottom: 1.5rem;">
+      <NavCard href="/components/button" title="Button コンポーネントを見る" />
+      <NavCard href="/components/callout" title="Callout コンポーネントを見る" />
+      <NavCard href="#" title="実装予定のページ" />
+    </ul>
+  </div>
+  <div>
+    ```html
+    <ul style="list-style: none; padding: 0; display: flex; flex-direction: column; gap: 0.8rem;">
+      <NavCard href="/components/button" title="Button コンポーネントを見る" />
+      <NavCard href="/components/callout" title="Callout コンポーネントを見る" />
+      <NavCard href="#" title="実装予定のページ" />
+    </ul>
+    ```
+  </div>
+</Tabs>
 
 <br />
 <br />
 
-<Button href="/" type="default">← トップへ戻る</Button>
+<Button href="/components" type="default">← コンポーネント一覧へ戻る</Button>

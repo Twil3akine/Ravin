@@ -4,6 +4,7 @@ title: Button (ボタン)
 ---
 
 import Button from '@/components/Button.astro';
+import Tabs from '@/components/Tabs.astro';
 
 # Button
 
@@ -11,11 +12,21 @@ import Button from '@/components/Button.astro';
 
 ## Usage
 
-<Button href="#" type="primary">Primary ボタン</Button>
-<Button href="#" type="default">Default ボタン</Button>
-<Button href="#" type="default" onclick='alert("ボタンがクリックされました")'>Alert ボタン</Button>
+<Tabs labels={["Preview", "Code"]}>
+  <div style="display: flex; gap: 1rem; flex-wrap: wrap; margin-bottom: 1.5rem;">
+    <Button href="#" type="primary">Primary ボタン</Button>
+    <Button href="#" type="default">Default ボタン</Button>
+    <Button href="#" type="default" onclick='alert("ボタンがクリックされました")'>Alert ボタン</Button>
+  </div>
+  <div>
+    ```html
+    <Button href="#" type="primary">Primary ボタン</Button>
+    <Button href="#" type="default">Default ボタン</Button>
+    <Button href="#" type="default" onclick='alert("ボタンがクリックされました")'>Alert ボタン</Button>
+    ```
+  </div>
+</Tabs>
 
 <br />
-<br />
 
-<Button href="/" type="default">← トップへ戻る</Button>
+<Button href="/components" type="default">← コンポーネント一覧へ戻る</Button>
