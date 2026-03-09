@@ -10,11 +10,15 @@ export interface Props {
 }
 
 const { siteTitle = "Ravin", navLinks = [] } = Astro.props;
+import Search from "@/components/Search.astro";
 ---
 
 <header class="header">
   <div class="header-inner">
-    <a href="/" class="site-title">{siteTitle}<span class="accent">.</span></a>
+    <div class="header-left">
+      <a href="/" class="site-title">{siteTitle}<span class="accent">.</span></a>
+      <Search text="Search..." />
+    </div>
 
     <div class="header-content">
       <nav class="nav">
@@ -50,6 +54,11 @@ const { siteTitle = "Ravin", navLinks = [] } = Astro.props;
     max-width: 1200px;
     margin: 0 auto;
     padding: 1rem 2rem;
+  }
+  .header-left {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
   }
   .site-title {
     font-size: 1.5rem;
