@@ -6,6 +6,7 @@ import { ClientRouter } from "astro:transitions";
 import Header from "@/components/Header.astro";
 import Footer from "@/components/Footer.astro";
 import ThemeToggle from "@/components/ThemeToggle.svelte";
+import Search from "@/components/Search.astro";
 
 interface Props {
   title?: string;
@@ -125,7 +126,7 @@ const navLinks = [
     <Header siteTitle={siteTitle} navLinks={navLinks}>
       <div
         slot="actions"
-        style="display: flex; align-items: center; gap: 1rem;"
+        style="display: flex; align-items: center; gap: 1.25rem;"
       >
         <ThemeToggle client:load />
 

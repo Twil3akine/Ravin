@@ -20,6 +20,7 @@ import Grid from "@/components/Grid.astro";
       <NavCard href="/components/button" title="Button" />
       <NavCard href="/components/callout" title="Callout" />
       <NavCard href="/components/codeblock" title="CodeBlock" />
+      <NavCard href="/components/featurecard" title="FeatureCard" />
       <NavCard href="/components/label" title="Label" />
       <NavCard href="/components/link" title="Link" />
       <NavCard href="/components/linkcard" title="LinkCard" />
@@ -42,6 +43,16 @@ import Grid from "@/components/Grid.astro";
     <Grid columns={3}>
       <NavCard href="/components/postheader" title="PostHeader" />
       <NavCard href="/components/themetoggle" title="ThemeToggle" />
+    </Grid>
+  </section>
+
+  <section>
+    <h2 style="font-size: 1.5rem; margin-bottom: 1rem;">Third-party Components</h2>
+    <p style="color: var(--theme-text-muted); margin-bottom: 1.5rem; font-size: 0.95rem;">
+      外部ライブラリと連携し、高度な機能を提供するコンポーネントです。
+    </p>
+    <Grid columns={3}>
+      <NavCard href="/components/search" title="Search" />
     </Grid>
   </section>
 </Layout>

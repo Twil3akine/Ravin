@@ -1,0 +1,63 @@
+---
+layout: '@/layouts/Layout.astro'
+title: Search (サイト内検索)
+---
+
+import Search from '@/components/Search.astro';
+import Button from '@/components/Button.astro';
+import Tabs from '@/components/Tabs.astro';
+import Table from '@/components/Table.astro';
+import Callout from '@/components/Callout.astro';
+
+# Search
+
+Astro向け検索エンジン「Pagefind」を利用した、モーダル形式のサイト内検索コンポーネントです。
+
+<Callout type="warning" title="Design Note">
+  現在のSearchコンポーネントのデザインは暫定的なものであり、将来のアップデートでUIが変更される可能性があります。
+</Callout>
+
+## Dependencies
+
+このコンポーネントは外部ライブラリ `astro-pagefind` に依存しています。`bun add astro-pagefind` でインストールし、`astro.config.mjs` に組み込む必要があります。
+
+## Properties
+
+Searchコンポーネントは見た目を調整するためのプロパティを受け付けます。
+
+<Table>
+| Property | Type | Description |
+| :------- | :--- | :---------- |
+| `text` | `string` | 虫眼鏡アイコンの横に表示するテキストを指定します。 |
+| `square` | `boolean` | `true` の場合、正方形（アイコンのみ）のボタンになります。 |
+</Table>
+
+## Usage
+
+<Tabs labels={["Preview", "Code"]}>
+  <div style="margin-bottom: 1.5rem; display: flex; gap: 1rem; align-items: center;">
+    <div style="display: inline-flex;">
+      <Search text="Search..." />
+    </div>
+    <div style="display: inline-flex;">
+      <Search square={true} />
+    </div>
+  </div>
+  <div>
+    ```astro
+    ---
+    import Search from '@/components/Search.astro';
+    ---
+
+    <!-- テキスト付きの長方形ボタン -->
+    <Search text="Search..." />
+
+    <!-- アイコンのみの正方形ボタン -->
+    <Search square={true} />
+    ```
+  </div>
+</Tabs>
+
+<br />
+
+<Button href="/components" type="default">← コンポーネント一覧へ戻る</Button>
