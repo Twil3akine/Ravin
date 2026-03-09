@@ -15,68 +15,93 @@ OSごとの手順や、コードとプレビューの切り替えなど、コン
 
   ### 1. パッケージマネージャーの切り替え
 
-  <Tabs labels={['npm', 'pnpm', 'yarn']}>
-    <Fragment>
+  <Tabs labels={['npm', 'pnpm', 'bun']}>
+    <div>
       <CodeBlock>
       ```bash
       npm install ravin
       ```
       </CodeBlock>
-    </Fragment>
-    <Fragment>
+    </div>
+    
+    <div>
       <CodeBlock>
       ```bash
       pnpm add ravin
       ```
       </CodeBlock>
-    </Fragment>
-    <Fragment>
+    </div>
+    
+    <div>
       <CodeBlock>
-      ```bash
-      yarn add ravin
-      ```
+        ```bash
+        bun add ravin
+        ```
       </CodeBlock>
-    </Fragment>
+    </div>
   </Tabs>
 
-  ### 2. OS別の手順の切り替え
+  ### 2. フレームワーク別のコード比較
 
-  <Tabs labels={['macOS / Linux', 'Windows']}>
-    <Fragment>
-      ターミナルを開き、以下のコマンドを実行します。
+  <Tabs labels={['React', 'Vue', 'Svelte']}>
+    <div>
       <CodeBlock>
-      ```bash
-      ls -la
+    ```jsx
+    function Hello({ name }) {
+      return <h1>Hello, {name}!</h1>;
+    }
+    ```
+      </CodeBlock>
+    </div>
+    
+    <div>
+      <CodeBlock>
+      ```vue
+      <template>
+        <h1>Hello, {{ name }}!</h1>
+      </template>
+      <script setup>
+      const props = defineProps(['name']);
+      </script>
       ```
       </CodeBlock>
-    </Fragment>
-    <Fragment>
-      PowerShellを開き、以下のコマンドを実行します。
+    </div>
+    
+    <div>
       <CodeBlock>
-      ```powershell
-      Get-ChildItem -Force
+      ```svelte
+      <script>
+        export let name;
+      </script>
+
+      <h1>Hello, {name}!</h1>
       ```
       </CodeBlock>
-    </Fragment>
+    </div>
   </Tabs>
 
-  ### 3. ランダムなコンテンツの切り替え
+  ### 3. Code & Preview の切り替え
+
+  コンポーネントのデモ用途などで、プレビュー画面とソースコードをタブで分けることができます。
 
   <Tabs labels={['Preview', 'Code']}>
-    <Fragment>
-      <div style="padding: 2rem; border: 1px dashed var(--theme-border); border-radius: 6px; margin-top: 1.5rem;">
+    <div>
+      <div style="padding: 2rem; border: 1px dashed var(--theme-border); border-radius: 6px; margin-top: 1.5rem; display: flex; justify-content: center;">
         <Button href="#" type="primary">プレビューボタン</Button>
       </div>
-    </Fragment>
-    <Fragment>
+    </div>
+    
+    <div>
       <CodeBlock>
       ```astro
+      ---
       import Button from '@/components/Button.astro';
+      ---
 
       <Button href="#" type="primary">プレビューボタン</Button>
       ```
       </CodeBlock>
-    </Fragment>
+    </div>
   </Tabs>
 
 <Button href="/components" type="default">← コンポーネント一覧へ戻る</Button>

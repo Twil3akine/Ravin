@@ -1,0 +1,72 @@
+---
+import Layout from "@/layouts/Layout.astro";
+import Button from "@/components/Button.astro";
+---
+
+<Layout 
+  title="404 - Page Not Found"
+  description="申し訳ありません。お探しのページは見つかりませんでした。"
+  hideTOC={true}
+>
+  <div class="not-found-container">
+    <h1 class="error-code">404</h1>
+    <h2 class="error-title">Page Not Found</h2>
+    <p class="error-description">
+      申し訳ありません。お探しのページは見つかりませんでした。<br />
+      <span class="nowrap">URLが間違っているか、すでに移動・削除された可能性があります。</span>
+    </p>
+    <div class="actions">
+      <Button href="/" type="primary">ホームへ戻る</Button>
+    </div>
+  </div>
+</Layout>
+
+<style>
+  .not-found-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    min-height: 60vh;
+    padding: 2rem;
+  }
+  
+  .error-code {
+    font-size: 8rem;
+    font-weight: 900;
+    line-height: 1;
+    margin: 0;
+    background: linear-gradient(135deg, var(--theme-text) 0%, var(--theme-text-muted) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    letter-spacing: -0.05em;
+  }
+  
+  .error-title {
+    font-size: 2rem;
+    font-weight: 700;
+    margin: 1rem 0;
+    color: var(--theme-accent);
+  }
+  
+  .error-description {
+    font-size: 1.1rem;
+    color: var(--theme-text-muted);
+    max-width: 500px;
+    margin: 0 auto 2.5rem auto;
+    line-height: 1.6;
+    word-break: keep-all;
+    overflow-wrap: break-word;
+  }
+  
+  .nowrap {
+    white-space: nowrap;
+  }
+  
+  .actions {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+  }
+</style>

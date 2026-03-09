@@ -22,7 +22,7 @@ import Label from '@/components/Label.astro';
 
 お使いのパッケージマネージャーに合わせて、以下のコマンドを実行してください。RavinはAstroプロジェクト上で動作します。
 
-<Tabs labels={['npm', 'pnpm', 'yarn']}>
+<Tabs labels={['npm', 'pnpm', 'bun']}>
   <div>
     <CodeBlock>
     ```bash
@@ -30,6 +30,7 @@ import Label from '@/components/Label.astro';
     ```
     </CodeBlock>
   </div>
+  
   <div>
     <CodeBlock>
     ```bash
@@ -37,11 +38,12 @@ import Label from '@/components/Label.astro';
     ```
     </CodeBlock>
   </div>
+  
   <div>
     <CodeBlock>
-    ```bash
-    yarn add ravin
-    ```
+      ```bash
+      bun add ravin
+      ```
     </CodeBlock>
   </div>
 </Tabs>

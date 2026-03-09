@@ -9,17 +9,36 @@ import ThemeToggle from "@/components/ThemeToggle.svelte";
 
 interface Props {
   title?: string;
+  description?: string;
+  image?: string;
+  articleDate?: string;
+  type?: "website" | "article";
   headings?: { depth: number; slug: string; text: string }[];
   hideTOC?: boolean;
   frontmatter?: {
     title?: string;
+    description?: string;
     hideTOC?: boolean;
   };
 }
 
-const { title, headings = [], hideTOC, frontmatter } = Astro.props;
+const { 
+  title, 
+  description,
+  image = "/og-image.png", // デフォルトのOGP画像（存在しない場合は表示されない）
+  type = "website",
+  articleDate,
+  headings = [], 
+  hideTOC, 
+  frontmatter 
+} = Astro.props;
 
+// タイトルとディスクリプションのフォールバック
 const pageTitle = title || frontmatter?.title || "Ravin Theme";
+const pageDescription = description || frontmatter?.description || "A minimal and rich Astro theme for blogs and documentation.";
+
+// 現在のページの絶対URLを生成 (Astro.siteが設定されている場合)
+const canonicalURL = new URL(Astro.url.pathname, Astro.site || Astro.url.origin);
 const shouldHideTOC = hideTOC || frontmatter?.hideTOC || false;
 const showSidebar = headings.length > 0 && !shouldHideTOC;
 
@@ -38,6 +57,26 @@ const navLinks = [
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>{pageTitle}</title>
+    <meta name="description" content={pageDescription} />
+    <link rel="canonical" href={canonicalURL} />
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content={type} />
+    <meta property="og:url" content={canonicalURL} />
+    <meta property="og:title" content={pageTitle} />
+    <meta property="og:description" content={pageDescription} />
+    {image && <meta property="og:image" content={new URL(image, canonicalURL)} />}
+    
+    <!-- Article Specific -->
+    {type === 'article' && articleDate && <meta property="article:published_time" content={articleDate} />}
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image" />
+    <meta property="twitter:url" content={canonicalURL} />
+    <meta property="twitter:title" content={pageTitle} />
+    <meta property="twitter:description" content={pageDescription} />
+    {image && <meta property="twitter:image" content={new URL(image, canonicalURL)} />}
+
     <ClientRouter />
 
     <style>

@@ -8,7 +8,10 @@ import { getCollection } from 'astro:content';
 const allDocsPosts = await getCollection('docs');
 ---
 
-<Layout title="ドキュメント一覧">
+<Layout 
+  title="ドキュメント一覧"
+  description="Ravinテーマの利用に関するドキュメントの一覧です。"
+>
   <Breadcrumbs />
 
   <PostHeader

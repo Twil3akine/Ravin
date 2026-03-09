@@ -9,7 +9,10 @@ const allBlogPosts = await getCollection('blog');
 const sortedPosts = allBlogPosts.sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf());
 ---
 
-<Layout title="ブログ記事一覧">
+<Layout 
+  title="ブログ記事一覧" 
+  description="Ravinテーマで構築されたブログ記事の一覧ページです。"
+>
   <Breadcrumbs />
 
   <PostHeader
