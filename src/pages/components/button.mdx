@@ -5,24 +5,47 @@ title: Button (ボタン)
 
 import Button from '@/components/Button.astro';
 import Tabs from '@/components/Tabs.astro';
+import Table from '@/components/Table.astro';
 
 # Button
 
 リンクやアクションを促すためのボタンコンポーネントです。
 
+## Properties
+
+Buttonコンポーネントは以下のプロパティを受け付けます。
+
+<Table>
+  | Property | Type | Description |
+  | :------- | :--- | :---------- |
+  | `type` | `"primary" \| "default"` | ボタンのスタイルを選択します。 |
+  | `href` | `string` | リンク先URL。指定すると `<a>`、指定しないと `<button>` タグになります。 |
+  | `square` | `boolean` | `true` の場合、正方形の形状になります（アイコン配置などに最適）。 |
+</Table>
+
 ## Usage
 
 <Tabs labels={["Preview", "Code"]}>
-  <div style="display: flex; gap: 1rem; flex-wrap: wrap; margin-bottom: 1.5rem;">
-    <Button href="#" type="primary">Primary ボタン</Button>
-    <Button href="#" type="default">Default ボタン</Button>
-    <Button href="#" type="default" onclick='alert("ボタンがクリックされました")'>Alert ボタン</Button>
+  <div style="display: flex; gap: 1rem; flex-wrap: wrap; margin-bottom: 1.5rem; align-items: center;">
+    <Button href="#" type="primary">Primary</Button>
+    <Button href="#" type="default">Default</Button>
+    <Button href="#" type="default" square={true}>
+      <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"></path></svg>
+    </Button>
   </div>
   <div>
-    ```html
-    <Button href="#" type="primary">Primary ボタン</Button>
-    <Button href="#" type="default">Default ボタン</Button>
-    <Button href="#" type="default" onclick='alert("ボタンがクリックされました")'>Alert ボタン</Button>
+    ```astro
+    ---
+    import Button from '@/components/Button.astro';
+    ---
+    
+    <Button href="#" type="primary">Primary</Button>
+    <Button href="#" type="default">Default</Button>
+
+    <!-- アイコンを入れた正方形のボタン -->
+    <Button href="#" type="default" square={true}>
+      <svg>...</svg>
+    </Button>
     ```
   </div>
 </Tabs>

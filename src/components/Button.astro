@@ -2,19 +2,20 @@
 interface Props {
   href?: string | null;
   type?: 'primary' | 'default';
+  square?: boolean;
   [key: string]: unknown;
 }
 
-const { href = null, type = 'primary', ...rest } = Astro.props;
+const { href = null, type = 'primary', square = false, ...rest } = Astro.props;
 ---
 
 {
   href ? (
-    <a href={href} class={`btn ${type}`} {...rest}>
+    <a href={href} class={`btn ${type} ${square ? 'square' : ''}`} {...rest}>
       <slot />
     </a>
   ) : (
-    <button class={`btn ${type}`} {...rest}>
+    <button class={`btn ${type} ${square ? 'square' : ''}`} {...rest}>
       <slot />
     </button>
   )
@@ -37,6 +38,12 @@ const { href = null, type = 'primary', ...rest } = Astro.props;
     border: 1px solid transparent;
     font-size: 0.95rem;
     margin: 0.5rem 0;
+  }
+
+  .btn.square {
+    padding: 0.5rem;
+    width: 2.25rem;
+    height: 2.25rem;
   }
 
   .primary {
