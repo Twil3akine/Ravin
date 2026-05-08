@@ -1,0 +1,37 @@
+---
+layout: '@/layouts/Layout.astro'
+title: Grid (グリッド)
+---
+
+import Grid from '@/components/Grid.astro';
+import NavCard from '@/components/NavCard.astro';
+import Button from '@/components/Button.astro';
+import Tabs from '@/components/Tabs.astro';
+
+# Grid
+
+コンポーネントやカードを均等な列で並べるためのレイアウトコンポーネントです。`columns` でデスクトップ時の列数を指定できます。
+
+## Usage
+
+<Tabs labels={["Preview", "Code"]}>
+  <Grid columns={3}>
+    <NavCard href="/components/button" title="Button" />
+    <NavCard href="/components/callout" title="Callout" />
+    <NavCard href="/components/tabs" title="Tabs" />
+  </Grid>
+  <div>
+    ```html
+    <Grid columns={3}>
+      <NavCard href="/components/button" title="Button" />
+      <NavCard href="/components/callout" title="Callout" />
+      <NavCard href="/components/tabs" title="Tabs" />
+    </Grid>
+    ```
+  </div>
+</Tabs>
+
+<br />
+<br />
+
+<Button href="/components" type="default">← コンポーネント一覧へ戻る</Button>

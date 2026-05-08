@@ -16,6 +16,13 @@
   --theme-warning-bg: rgba(245, 158, 11, 0.08);
   --theme-danger: #ef4444;
   --theme-danger-bg: rgba(239, 68, 68, 0.08);
+
+  --theme-font-sans:
+    system-ui, -apple-system, "Hiragino Kaku Gothic ProN", "Hiragino Sans",
+    "Noto Sans JP", sans-serif;
+  --theme-font-mono:
+    "Ubuntu Mono", ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas,
+    monospace;
 }
 
 :root[data-theme="dark"] {
@@ -38,10 +45,8 @@ body {
   margin: 0;
   background-color: var(--theme-bg);
   color: var(--theme-text);
-  font-family:
-    system-ui,
-    -apple-system,
-    sans-serif;
+  font-family: var(--theme-font-sans);
+  font-weight: 400;
   line-height: 1.7;
   display: flex;
   flex-direction: column;
@@ -73,14 +78,7 @@ pre {
 }
 
 :not(pre) > code {
-  font-family:
-    Ubuntu mono,
-    ui-monospace,
-    SFMono-Regular,
-    Menlo,
-    Monaco,
-    Consolas,
-    monospace;
+  font-family: var(--theme-font-mono);
   font-size: 1em;
   background-color: var(--theme-bg-sub);
   color: var(--theme-text);
